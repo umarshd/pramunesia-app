@@ -2,173 +2,145 @@
 
 namespace App\Controllers;
 
-use App\Models\WisatawanModel;
-use App\Models\PemanduModel;
-use App\Models\AdminModel;
+use App\Models\MahasiswaModel;
+use App\Models\UsersModel;
 
 class Auth extends BaseController
 {
-  protected $WisatawanModel;
-  protected $PemanduModel;
-  protected $AdminModel;
+  protected $MahasiswaModel;
+  protected $UsersModel;
 
   public function __construct()
   {
-    $this->WisatawanModel = new WisatawanModel();
-    $this->PemanduModel = new PemanduModel();
-    $this->AdminModel = new AdminModel();
+    $this->MahasiswaModel = new MahasiswaModel();
+    $this->UsersModel = new UsersModel();
   }
-
-  public function loginWisatawan()
+  public function login()
   {
-    return view('auth/login-wisatawan');
+    return view('auth/login');
   }
-
-  public function loginPemandu()
+  public function register()
   {
-    return view('auth/login-pemandu');
+    return view('auth/register');
   }
 
-  public function loginAdmin()
-  {
-    return view('auth/login-admin');
-  }
-
-  public function prosesLoginWisatawan()
+  public function prosesLogin()
   {
     $rules = $this->validate([
-      'email' => [
+      'username' => [
         'rules' => 'required',
-        'errors' => [
-          'required' => 'Email tidak boleh kosong'
+        'errors'  => [
+          'required' => 'Username harus di isi'
         ]
       ],
       'password' => [
         'rules' => 'required',
-        'errors' => [
-          'required' => 'password tidak boleh kosong'
+        'errors'  => [
+          'required' => 'Password harus di isi'
         ]
       ],
     ]);
 
     if (!$rules) {
       session()->setFlashdata('error', $this->validator->listErrors());
-      return redirect()->back()->withInput();
+      return redirect()->back();
     }
-    $email = $this->request->getVar('email');
+    $username = $this->request->getVar('username');
     $password = $this->request->getVar('password');
 
-    $cekEmail = $this->WisatawanModel->where('email', $email)->first();
-
-    if (!$cekEmail) {
-      session()->setFlashdata('error', 'Email atau Password salah');
-      return redirect()->back()->withInput();
+    $chekUsername = $this->UsersModel->where('username', $username)->first();
+    if (!$chekUsername) {
+      session()->setFlashdata('error', 'username tidak terdaftar');
+      return redirect()->back();
     }
 
-    $passwordVerify = password_verify($password, $cekEmail['password']);
+    $passwordVerify = password_verify($password, $chekUsername['password']);
 
-    if (!$passwordVerify) {
-      session()->setFlashdata('error', 'Email atau Password salah');
-      return redirect()->back()->withInput();
+    if ($passwordVerify != $password) {
+      session()->setFlashdata('error', 'password salah');
+      return redirect()->back();
     }
 
     session()->set([
-      'wisatawanId' => $cekEmail['id'],
+      'username'      => $chekUsername['username'],
+      'rolename'      => $chekUsername['rolename'],
+      'nim_mahasiswa' => $chekUsername['nim_mahasiswa'],
+      'is_loggin'     => true,
     ]);
 
-
-    return redirect()->to('/wisatawan/kota');
-  }
-
-  public function prosesLoginPemandu()
-  {
-    $rules = $this->validate([
-      'email' => [
-        'rules' => 'required',
-        'errors' => [
-          'required' => 'Email tidak boleh kosong'
-        ]
-      ],
-      'password' => [
-        'rules' => 'required',
-        'errors' => [
-          'required' => 'password tidak boleh kosong'
-        ]
-      ],
-    ]);
-
-    if (!$rules) {
-      session()->setFlashdata('error', $this->validator->listErrors());
-      return redirect()->back()->withInput();
+    if ($chekUsername['rolename'] == 'mahasiswa') {
+      return redirect()->to('/mahasiswa/dashboard');
     }
-    $email = $this->request->getVar('email');
-    $password = $this->request->getVar('password');
-
-    $cekEmail = $this->PemanduModel->where('email', $email)->first();
-
-    if (!$cekEmail) {
-      session()->setFlashdata('error', 'Email atau Password salah');
-      return redirect()->back()->withInput();
-    }
-
-    $passwordVerify = password_verify($password, $cekEmail['password']);
-
-    if (!$passwordVerify) {
-      session()->setFlashdata('error', 'Email atau Password salah');
-      return redirect()->back()->withInput();
-    }
-
-    session()->set([
-      'pemanduId' => $cekEmail['id'],
-    ]);
-
-
-    return redirect()->to('/pemandu/dashboard');
-  }
-
-  public function prosesLoginAdmin()
-  {
-    $rules = $this->validate([
-      'email' => [
-        'rules' => 'required',
-        'errors' => [
-          'required' => 'Email tidak boleh kosong'
-        ]
-      ],
-      'password' => [
-        'rules' => 'required',
-        'errors' => [
-          'required' => 'password tidak boleh kosong'
-        ]
-      ],
-    ]);
-
-    if (!$rules) {
-      session()->setFlashdata('error', $this->validator->listErrors());
-      return redirect()->back()->withInput();
-    }
-    $email = $this->request->getVar('email');
-    $password = $this->request->getVar('password');
-
-    $cekEmail = $this->AdminModel->where('email', $email)->first();
-
-    if (!$cekEmail) {
-      session()->setFlashdata('error', 'Email atau Password salah');
-      return redirect()->back()->withInput();
-    }
-
-    $passwordVerify = password_verify($password, $cekEmail['password']);
-
-    if (!$passwordVerify) {
-      session()->setFlashdata('error', 'Email atau Password salah');
-      return redirect()->back()->withInput();
-    }
-
-    session()->set([
-      'adminId' => $cekEmail['id'],
-    ]);
-
-
     return redirect()->to('/admin/dashboard');
+  }
+
+  public function prosesRegister()
+  {
+    $rules = $this->validate([
+      'nim' => [
+        'rules' => 'required',
+        'errors'  => [
+          'required' => 'Nim harus di isi'
+        ]
+      ],
+      'username' => [
+        'rules' => 'required',
+        'errors'  => [
+          'required' => 'Username harus di isi'
+        ]
+      ],
+      'password' => [
+        'rules' => 'required',
+        'errors'  => [
+          'required' => 'Password harus di isi'
+        ]
+      ],
+    ]);
+
+    if (!$rules) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back();
+    }
+
+    $nimInput = $this->request->getVar('nim');
+
+    $dataMahasiswa = $this->MahasiswaModel->findAll();
+
+    $dataNimMahasiswa = [];
+
+    foreach ($dataMahasiswa as $dataMhs) {
+      $dataNimMahasiswa[] = $dataMhs['nim'];
+    }
+
+    if (!in_array($nimInput, $dataNimMahasiswa)) {
+      session()->setFlashdata('error', 'nim tidak terdaftar');
+      return redirect()->back();
+    }
+
+    $password = $this->request->getVar('password');
+    $passwordKonfirmasi = $this->request->getVar('password2');
+
+    if ($password != $passwordKonfirmasi) {
+      session()->setFlashdata('error', 'password tidak sama ! silahkan cek kembali');
+      return redirect()->back();
+    }
+
+    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+
+    $data = [
+      'username'  => $this->request->getVar('username'),
+      'password'  => $passwordHash,
+      'rolename'  => 'mahasiswa',
+      'nim_mahasiswa' => $this->request->getVar('nim'),
+    ];
+
+    $this->UsersModel->insert($data);
+    return redirect()->to('/');
+  }
+
+  public function logout()
+  {
+    session()->destroy();
+    return redirect()->to('/');
   }
 }

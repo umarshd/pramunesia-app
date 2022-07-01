@@ -7,7 +7,7 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
     require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -21,11 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-//$routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -35,8 +31,54 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('/wisatawan/login', 'Auth::loginWisatawan');
+
+$routes->get('/', 'Auth::login');
+$routes->get('/register', 'Auth::register');
+$routes->post('/login/proses', 'Auth::prosesLogin');
+$routes->post('/register/proses', 'Auth::prosesRegister');
+$routes->get('/logout', 'Auth::logout');
+
+
+$routes->group('admin', function ($routes) {
+    $routes->get('/', 'Admin::dashboard');
+
+
+    $routes->get('kota', 'Kota::index');
+    $routes->get('kota/tambah', 'Kota::tambah');
+    $routes->get('kota/edit/(:segment)', 'Kota::edit/$1');
+    $routes->get('kota/delete/(:segment)', 'Kota::delete/$1');
+    $routes->post('kota/tambah/proses', 'Kota::prosesTambah');
+    $routes->post('kota/edit/proses', 'Kota::prosesEdit');
+
+    $routes->get('sidang', 'Sidang::listSidang');
+    $routes->get('sidang/tambah', 'Sidang::tambah');
+    $routes->get('sidang/edit/(:segment)', 'Sidang::edit/$1');
+    $routes->get('sidang/delete/(:segment)', 'Sidang::delete/$1');
+    $routes->post('sidang/tambah/proses', 'Sidang::prosesTambah');
+    $routes->post('sidang/edit/proses', 'Sidang::prosesEdit');
+
+    $routes->get('dosen', 'Dosen::listDosen');
+    $routes->get('dosen/tambah', 'Dosen::tambah');
+    $routes->get('dosen/edit/(:segment)', 'Dosen::edit/$1');
+    $routes->get('dosen/delete/(:segment)', 'Dosen::delete/$1');
+    $routes->post('dosen/tambah/proses', 'Dosen::prosesTambah');
+    $routes->post('dosen/edit/proses', 'Dosen::prosesEdit');
+
+    $routes->get('mahasiswa', 'Mahasiswa::listMahasiswa');
+    $routes->get('mahasiswa/tambah', 'Mahasiswa::tambah');
+    $routes->get('mahasiswa/edit/(:segment)', 'Mahasiswa::edit/$1');
+    $routes->get('mahasiswa/delete/(:segment)', 'Mahasiswa::delete/$1');
+    $routes->post('mahasiswa/tambah/proses', 'Mahasiswa::prosesTambah');
+    $routes->post('mahasiswa/edit/proses', 'Mahasiswa::prosesEdit');
+});
+
+$routes->group('mahasiswa', ['filter' => 'authfilter'], function ($routes) {
+    $routes->get('/', 'Mahasiswa::dashboard');
+
+    $routes->get('pendaftaransidang', 'PendaftaranSidang::daftarSidang');
+    $routes->get('pendaftaransidang/status', 'PendaftaranSidang::statusSidang');
+    $routes->post('pendaftaransidang/proses', 'PendaftaranSidang::prosesDaftar');
+});
 
 /*
  * --------------------------------------------------------------------
@@ -51,6 +93,6 @@ $routes->get('/wisatawan/login', 'Auth::loginWisatawan');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

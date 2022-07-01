@@ -1,0 +1,8 @@
+admin 
+
+username admin => admin
+password admin => 123
+
+user 
+username => umarsahid
+password => 123

@@ -1,21 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
-
 :root {
-  --clr-firefly: #112b3c;
-  --clr-chatams: #205375;
-  --clr-pumpkin: #f66b0e;
-  --clr-soft-peace: #efefef;
-  --clr-dark-grey: #d9d9d9;
+  --font-color-1: #012970;
 }
 
-body {
-  font-family: "Rubik", sans-serif !important;
-}
-
-.bg-firefly {
-  background-color: var(--clr-firefly);
-}
-
-.h-100vh {
-  min-height: 100vh;
+.fc-color-1 {
+  color: var(--font-color-1);
 }

@@ -39,26 +39,24 @@ class Kota extends BaseController
   public function prosesTambah()
   {
     $rules = $this->validate([
-      'nama' => [
+      'name' => [
         'rules' => 'required',
-        'errors' => [
-          'required' => 'Nama kota tidak boleh kosong'
-        ]
-      ]
+      ],
     ]);
 
     if (!$rules) {
       session()->setFlashdata('error', $this->validator->listErrors());
-      return redirect()->back()->withInput();
+      return redirect()->back();
     }
 
+    return 'ok';
     $data = [
       'nama' => $this->request->getVar('nama')
     ];
 
     $this->KotaModel->insert($data);
     session()->setFlashdata('success', 'Data berhasil ditambahkan');
-    return redirect()->to('/admin/kota');
+    // return redirect()->to('/admin/kota');
   }
 
   public function prosesEdit()

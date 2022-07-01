@@ -41,8 +41,19 @@ $routes->post('/wisatawan/login/proses', 'Auth::prosesLoginWisatawan');
 $routes->get('/wisatawan/registrasi', 'Auth::registrasiWisatawan');
 $routes->post('/wisatawan/registrasi/proses', 'Auth::prosesRegistrasiWisatawan');
 
+$routes->get('/pemandu/login', 'Auth::loginPemandu');
+$routes->post('/pemandu/login/proses', 'Auth::prosesLoginPemandu');
+$routes->get('/pemandu/registrasi', 'Auth::registrasiPemandu');
+$routes->post('/pemandu/registrasi/proses', 'Auth::prosesRegistrasiPemandu');
+
 $routes->get('/', 'Landing::index');
 $routes->get('/tentang-kami', 'Landing::tentangKami');
+
+$routes->group('wisatawan', function ($routes) {
+    $routes->get('/', 'Wisatawan::index');
+
+    $routes->get('pemandu/(:segment)', 'Wisatawan::detailPemandu/$1');
+});
 
 $routes->group('admin', function ($routes) {
     $routes->get('kota', 'Kota::index');

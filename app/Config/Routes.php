@@ -36,14 +36,39 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+$routes->get('/wisatawan/login', 'Auth::loginWisatawan');
+$routes->post('/wisatawan/login/proses', 'Auth::prosesLoginWisatawan');
+$routes->get('/wisatawan/registrasi', 'Auth::registrasiWisatawan');
+$routes->post('/wisatawan/registrasi/proses', 'Auth::prosesRegistrasiWisatawan');
+
+$routes->get('/pemandu/login', 'Auth::loginPemandu');
+$routes->post('/pemandu/login/proses', 'Auth::prosesLoginPemandu');
+$routes->get('/pemandu/registrasi', 'Auth::registrasiPemandu');
+$routes->post('/pemandu/registrasi/proses', 'Auth::prosesRegistrasiPemandu');
+
+$routes->get('/', 'Landing::index');
+$routes->get('/tentang-kami', 'Landing::tentangKami');
+
+$routes->group('wisatawan', function ($routes) {
+    $routes->get('/', 'Wisatawan::index');
+
+    $routes->get('pemandu/(:segment)', 'Wisatawan::detailPemandu/$1');
+});
+
 $routes->group('admin', function ($routes) {
     $routes->get('kota', 'Kota::index');
     $routes->get('kota/tambah', 'Kota::tambah');
     $routes->post('kota/tambah/proses', 'Kota::prosestambah');
+    $routes->post('kota/edit/proses', 'Kota::prosesEdit');
+    $routes->get('kota/delete/(:segment)', 'Kota::delete/$1');
+    $routes->get('kota/edit/(:segment)', 'Kota::edit/$1');
 
     $routes->get('destinasi', 'Destinasi::index');
     $routes->get('destinasi/tambah', 'Destinasi::tambah');
     $routes->post('destinasi/tambah/proses', 'Destinasi::prosestambah');
+    $routes->post('destinasi/edit/proses', 'Destinasi::prosesEdit');
+    $routes->get('destinasi/delete/(:segment)', 'Destinasi::delete/$1');
+    $routes->get('destinasi/edit/(:segment)', 'Destinasi::edit/$1');
 });
 
 /*

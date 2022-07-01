@@ -321,3 +321,128 @@ in APPPATH\Controllers\Destinasi.php on line 71.
  3 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 08:32:46 --> Undefined variable: dataKota
+in APPPATH\Views\admin\destinasi\edit.php on line 58.
+ 1 APPPATH\Views\admin\destinasi\edit.php(58): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: dataKota', 'APPPATH\\Views\\admin\\destinasi\\edit.php', 58, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\destinasi\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/destinasi/edit', [], true)
+ 5 APPPATH\Controllers\Destinasi.php(41): view('admin/destinasi/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Destinasi->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Destinasi))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 08:36:01 --> Cannot use object of type App\Models\DestinasiModel as array
+in APPPATH\Views\admin\destinasi\edit.php on line 40.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/destinasi/edit', [], true)
+ 4 APPPATH\Controllers\Destinasi.php(42): view('admin/destinasi/edit', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Destinasi->edit('1')
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Destinasi))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 10:50:02 --> Invalid file: layouts/wisatwan_layout.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/wisatwan_layout.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/wisatwan_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/index', [], true)
+ 4 APPPATH\Controllers\Wisatawan.php(17): view('wisatawan/index')
+ 5 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-01 12:04:05 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND `tanggal_berakhir` <
+AND `tanggal_berakhir` <' at line 4
+CRITICAL - 2022-07-01 12:04:05 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND `tanggal_berakhir` <
+AND `tanggal_berakhir` <' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `transaksi`
+WHERE `tanggal_keberangkatan` <
+AND `tanggal_berakhir` <
+AND `tanggal_berakhir` <', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `transaksi`
+WHERE `tanggal_keberangkatan` <
+AND `tanggal_berakhir` <
+AND `tanggal_berakhir` <')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `transaksi`
+WHERE `tanggal_keberangkatan` <
+AND `tanggal_berakhir` <
+AND `tanggal_berakhir` <')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `transaksi`
+WHERE `tanggal_keberangkatan` <
+AND `tanggal_berakhir` <
+AND `tanggal_berakhir` <', [], false)
+ 5 APPPATH\Models\CustomModel.php(17): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Wisatawan.php(31): App\Models\CustomModel->ambilJadwalPemanduYangTersedia(null, null)
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 12:34:44 --> syntax error, unexpected 'berangkat' (T_STRING)
+in APPPATH\Controllers\Wisatawan.php on line 38.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Wisatawan.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Wisatawan')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Wisatawan')
+ 4 [internal function]: spl_autoload_call('App\\Controllers\\Wisatawan')
+ 5 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\Wisatawan', true)
+ 6 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 12:52:38 --> Undefined variable: tanggal_keberangkatan
+in APPPATH\Views\wisatawan\index.php on line 23.
+ 1 APPPATH\Views\wisatawan\index.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_keberangkatan', 'APPPATH\\Views\\wisatawan\\index.php', 23, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/index', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(64): view('wisatawan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 12:53:17 --> Undefined variable: tanggal_keberangkatan
+in APPPATH\Views\wisatawan\index.php on line 23.
+ 1 APPPATH\Views\wisatawan\index.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_keberangkatan', 'APPPATH\\Views\\wisatawan\\index.php', 23, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/index', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(65): view('wisatawan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 12:54:21 --> Undefined variable: tanggal_keberangkatan
+in APPPATH\Views\wisatawan\index.php on line 23.
+ 1 APPPATH\Views\wisatawan\index.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_keberangkatan', 'APPPATH\\Views\\wisatawan\\index.php', 23, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/index', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(65): view('wisatawan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 13:01:41 --> Trying to access array offset on value of type null
+in APPPATH\Views\wisatawan\index.php on line 49.
+ 1 APPPATH\Views\wisatawan\index.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\wisatawan\\index.php', 49, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/index', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(70): view('wisatawan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

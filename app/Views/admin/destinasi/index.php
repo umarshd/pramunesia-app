@@ -47,10 +47,34 @@
                   <th><?= $i++ ?></th>
                   <td><?= $destinasi['nama'] ?></td>
                   <td>
-                    <span class="badge bg-secondary">edit</span>
-                    <span class="badge bg-danger">delete</span>
+                    <a href="<?= base_url('/admin/destinasi/edit/' . $destinasi['id']) ?>">
+                      <span class="badge bg-secondary">Edit</span>
+                    </a>
+
+                    <button type="button" class="border-0" style="background: transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $destinasi['id'] ?>">
+                      <span class=" badge bg-danger">Delete</span>
+                    </button>
                   </td>
                 </tr>
+                <div class="modal fade" id="exampleModal<?= $destinasi['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <h4 class="h4">
+                          Apakah kamu yakin menghapus data ini ?</h4>
+                        <p>Data ini akan hilang selamanya</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="<?= base_url('/admin/destinasi/delete/' . $destinasi['id']) ?>" class="btn btn-danger">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <?php endforeach ?>
 
 

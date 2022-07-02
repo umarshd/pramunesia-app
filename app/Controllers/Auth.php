@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\WisatawanModel;
 use App\Models\PemanduModel;
+use App\Models\AdminModel;
 
 class Auth extends BaseController
 {
   protected $WisatawanModel;
   protected $PemanduModel;
+  protected $AdminModel;
 
   public function __construct()
   {
     $this->WisatawanModel = new WisatawanModel();
     $this->PemanduModel = new PemanduModel();
+    $this->AdminModel = new AdminModel();
   }
 
   public function loginWisatawan()
@@ -128,14 +131,22 @@ class Auth extends BaseController
     return redirect()->to('/wisatawan/login');
   }
 
+  public function logoutWisatawan()
+  {
+    session()->destroy();
+    return redirect()->to('wisatawan/login');
+  }
+
   public function loginPemandu()
   {
     return view('auth/login-pemandu');
   }
+
   public function registrasiPemandu()
   {
     return view('auth/regis-pemandu');
   }
+
   public function prosesLoginPemandu()
   {
     $rules = $this->validate([
@@ -181,6 +192,7 @@ class Auth extends BaseController
 
     return redirect()->to('/pemandu');
   }
+
   public function prosesRegistrasiPemandu()
   {
     $rules = $this->validate([
@@ -259,9 +271,66 @@ class Auth extends BaseController
     return redirect()->to('/pemandu/login');
   }
 
-  public function logoutWisatawan()
+  public function logoutPemandu()
   {
     session()->destroy();
-    return redirect()->to('wisatawan/login');
+    return redirect()->to('/pemandu/login');
+  }
+
+  public function loginAdmin()
+  {
+    return view('auth/login-admin');
+  }
+
+  public function prosesLoginAdmin()
+  {
+    $rules = $this->validate([
+      'email' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Email harus diisi'
+        ]
+      ],
+      'password' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Password harus diisi'
+        ]
+      ],
+    ]);
+
+    if (!$rules) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back()->withInput();
+    }
+
+    $email = $this->request->getVar('email');
+    $password = $this->request->getVar('password');
+    $cekEmail = $this->AdminModel->where('email', $email)->first();
+
+    if (!$cekEmail) {
+      session()->setFlashdata('error', 'email atau password salah');
+      return redirect()->back()->withInput();
+    }
+
+    $passwordVerif = password_verify($password, $cekEmail['password']);
+
+    if (!$passwordVerif) {
+      session()->setFlashdata('error', 'email atau password salah');
+      return redirect()->back()->withInput();
+    }
+
+    session()->set([
+      'is_login_admin' => true,
+      'admin_id' => $cekEmail['id']
+    ]);
+
+    return redirect()->to('/admin/dashboard');
+  }
+
+  public function logoutAdmin()
+  {
+    session()->destroy();
+    return redirect()->to('/admin/login');
   }
 }

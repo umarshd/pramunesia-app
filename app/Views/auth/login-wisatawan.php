@@ -57,7 +57,7 @@
         <div class="text-center">
           <p class="my-3 text-3">
             <span>
-              <a href="<?= base_url() ?>pemandu/login">
+              <a href="<?= base_url() ?>/pemandu/login">
                 Masuk sebagai Pemandu Wisata
               </a>
             </span>

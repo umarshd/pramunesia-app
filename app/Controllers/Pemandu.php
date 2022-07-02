@@ -42,4 +42,9 @@ class Pemandu extends BaseController
 
     return view('pemandu/profile/edit');
   }
+
+  public function kegiatan()
+  {
+    return view('pemandu/kegiatan/index');
+  }
 }

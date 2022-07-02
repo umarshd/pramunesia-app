@@ -114,6 +114,13 @@ $routes->group('admin', function ($routes) {
     $routes->post('destinasi/edit/proses', 'Destinasi::prosesEdit');
     $routes->get('destinasi/delete/(:segment)', 'Destinasi::delete/$1');
     $routes->get('destinasi/edit/(:segment)', 'Destinasi::edit/$1');
+
+    $routes->get('transaksi', 'Transaksi::index');
+    $routes->get('transaksi/tambah', 'Transaksi::tambah');
+    $routes->post('transaksi/tambah/proses', 'Transaksi::prosestambah');
+    $routes->post('transaksi/edit/proses', 'Transaksi::prosesEdit');
+    $routes->get('transaksi/delete/(:segment)', 'Transaksi::delete/$1');
+    $routes->get('transaksi/edit/(:segment)', 'Transaksi::edit/$1');
 });
 
 /*

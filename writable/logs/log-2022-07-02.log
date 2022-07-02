@@ -308,3 +308,85 @@ in APPPATH\Views\admin\pemandu\index.php on line 44.
  8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 08:08:16 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\kota\edit.php on line 29.
+ 1 APPPATH\Views\admin\kota\edit.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\admin\\kota\\edit.php', 29, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kota\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/kota/edit', [], true)
+ 5 APPPATH\Controllers\Kota.php(34): view('admin/kota/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Kota->edit('4')
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kota))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 08:08:31 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\kota\edit.php on line 29.
+ 1 APPPATH\Views\admin\kota\edit.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\admin\\kota\\edit.php', 29, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kota\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/kota/edit', [], true)
+ 5 APPPATH\Controllers\Kota.php(34): view('admin/kota/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Kota->edit('4')
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kota))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 08:08:43 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\kota\edit.php on line 29.
+ 1 APPPATH\Views\admin\kota\edit.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\admin\\kota\\edit.php', 29, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kota\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('admin/kota/edit', [], true)
+ 5 APPPATH\Controllers\Kota.php(34): view('admin/kota/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Kota->edit('4')
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kota))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-02 08:09:31 --> Column 'id' in where clause is ambiguous
+CRITICAL - 2022-07-02 08:09:31 --> Column 'id' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`, `wisatawan`.`nama` as `nama_wisatawan`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+JOIN `wisatawan` ON `wisatawan`.`id`=`transaksi`.`wisatawan_id`
+WHERE `id` = \'4\'
+ORDER BY `id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`, `wisatawan`.`nama` as `nama_wisatawan`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+JOIN `wisatawan` ON `wisatawan`.`id`=`transaksi`.`wisatawan_id`
+WHERE `id` = \'4\'
+ORDER BY `id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`, `wisatawan`.`nama` as `nama_wisatawan`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+JOIN `wisatawan` ON `wisatawan`.`id`=`transaksi`.`wisatawan_id`
+WHERE `id` = \'4\'
+ORDER BY `id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`, `wisatawan`.`nama` as `nama_wisatawan`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+JOIN `wisatawan` ON `wisatawan`.`id`=`transaksi`.`wisatawan_id`
+WHERE `id` = :id:
+ORDER BY `id` DESC', [...], false)
+ 5 APPPATH\Models\CustomModel.php(107): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Transaksi.php(40): App\Models\CustomModel->dataTransaksiById('4')
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Transaksi->edit('4')
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaksi))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 08:09:56 --> Undefined index: transaksi
+in APPPATH\Controllers\Transaksi.php on line 43.
+ 1 APPPATH\Controllers\Transaksi.php(43): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: transaksi', 'APPPATH\\Controllers\\Transaksi.php', 43, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Transaksi->edit('4')
+ 3 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Transaksi))
+ 4 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

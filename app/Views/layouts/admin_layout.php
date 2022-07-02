@@ -120,6 +120,12 @@
         </a>
       </li>
       <li class="nav-item nav-side">
+        <a class="nav-link collapsed" href="<?= base_url() ?>/admin/transaksi">
+          <i class="bi bi-grid"></i>
+          <span>Transaksi</span>
+        </a>
+      </li>
+      <li class="nav-item nav-side">
         <a class="nav-link collapsed" href="<?= base_url() ?>/admin/wisatawan">
           <i class="bi bi-grid"></i>
           <span>Wisatawan</span>

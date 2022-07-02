@@ -52,22 +52,23 @@
               <?php $handleDisplayKosong = 'Pemandu tidak tersedia' ?>
             <?php else : ?>
               <div class="col-lg-6 mt-3" style="min-height: 216px !important;">
-                <div class="card p-4 bg-custom-2" style="height: 100%;">
+                <div class="card p-4 bg-custom-2 border-radius-10" style="height: 100%;">
                   <div class="row align-items-center">
                     <div class="col-lg-3">
-                      <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="img-fluid">
+                      <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
                     </div>
                     <div class="col-lg-9">
                       <div class="d-flex flex-column justify-content-between" style="height: 100% ;">
                         <h5 class="text-white mb-3"><?= $pemandu['nama'] ?></h5>
                         <p class="text-white displayRingkasan " style="min-height: 72px ;"><?= substr($pemandu['ringkasan'], 0, 100) ?></p>
-                        <div class="mt-auto">
-                          <a href="<?= base_url('/wisatawan/pemandu/' . $pemandu['id']) ?>" class="btn btn-secondary">Detail</a>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                          <span class="text-white">Rp.300.000,00 / hari</span>
+                          <a href="<?= base_url('/wisatawan/pemandu/' . $pemandu['id']) ?>" class="btn btn-secondary ms-auto">Detail</a>
                           <?php
                           date_default_timezone_set('Asia/Jakarta');
                           $tanggal_pemesanan = date('Y-m-d');
                           ?>
-                          <a href="<?= base_url('/wisatawan/transaksi/konfirmasi?kota_id=' . $kota_id . '&tanggal_keberangkatan=' . $tanggal_keberangkatan . '&tanggal_berakhir=' . $tanggal_berakhir . '&tanggal_pemesanan=' . $tanggal_pemesanan . '&pemandu_id=' . $pemandu['id']) ?>" class="btn btn-custom-3">Pesan</a>
+                          <a href="<?= base_url('/wisatawan/transaksi/konfirmasi?kota_id=' . $kota_id . '&tanggal_keberangkatan=' . $tanggal_keberangkatan . '&tanggal_berakhir=' . $tanggal_berakhir . '&tanggal_pemesanan=' . $tanggal_pemesanan . '&pemandu_id=' . $pemandu['id']) ?>" class="btn btn-custom-3 mx-2">Pesan</a>
 
                         </div>
                       </div>
@@ -84,7 +85,7 @@
             <?php endif ?>
 
           <?php endforeach ?>
-          <h3><?= $handleDisplayKosong ?></h3>
+
         </div>
       </div>
     <?php endif ?>

@@ -19,6 +19,14 @@
               <?= $tanggal_pemesanan ?>
             </div>
             <input type="text" name="tanggal_pemesanan" value="<?= $tanggal_pemesanan ?>" hidden>
+            <?php
+
+            date_default_timezone_set('Asia/Jakarta');
+            $nomorTiket = date('YmdHis') . session()->get('wisatawan_id');
+
+            ?>
+            <input type="text" name="nomor_tiket" value="<?= $nomorTiket ?>" hidden>
+
           </div>
           <div class="form-group py-2">
             <label class="form-label text-white">Tanggal Keberangkatan</label>

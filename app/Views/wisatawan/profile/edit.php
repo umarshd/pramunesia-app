@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/pemandu_layout') ?>
+<?= $this->extend('layouts/wisatawan_layout') ?>
 <?= $this->section('content') ?>
 <div class="container my-3" style="min-height: 73vh ;">
   <div class="row justify-content-center">
@@ -61,7 +61,7 @@
                 </div>
               </div>
 
-              <div class="text-center mt-3 mb-2">
+              <div class="text-end mt-3 mb-2">
                 <button type="submit" class="btn btn-custom-3">Edit</button>
               </div>
             </form>

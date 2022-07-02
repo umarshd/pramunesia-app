@@ -17,5 +17,6 @@ class TransaksiModel extends Model
     'kota_id',
     'pemandu_id',
     'wisatawan_id',
+    'nomor_tiket'
   ];
 }

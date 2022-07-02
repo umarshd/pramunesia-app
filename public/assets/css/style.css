@@ -73,6 +73,16 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+.page-item.active .page-link {
+  background-color: var(--clr-firefly) !important;
+  border-color: var(--clr-firefly) !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+  background-color: var(--clr-firefly);
+}
+
 .bg-firefly {
   background-color: var(--clr-firefly);
 }

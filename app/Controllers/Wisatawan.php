@@ -49,10 +49,11 @@ class Wisatawan extends BaseController
       $data = [
         'dataKota' => $this->KotaModel->findAll(),
         'dataDestinasi' => $this->DestinasiModel,
-        'dataTransaksi' => null,
-        'tanggal_keberangkatan' => "",
-        'kota_id' => '',
-        'tanggal_berakhir' => ''
+        'dataTransaksi' => false,
+        'tanggal_keberangkatan' => null,
+        'kota_id' => null,
+        'tanggal_berakhir' => null,
+        'show' => false
       ];
 
       return view('wisatawan/index', $data);
@@ -65,7 +66,8 @@ class Wisatawan extends BaseController
       'dataPemandu' => $this->PemanduModel->findAll(),
       'tanggal_keberangkatan' => $tanggal_keberangkatan,
       'kota_id' => $kota_id,
-      'tanggal_berakhir' => $tanggal_berakhir
+      'tanggal_berakhir' => $tanggal_berakhir,
+      'show' => true
     ];
     return view('wisatawan/index', $data);
   }
@@ -76,5 +78,248 @@ class Wisatawan extends BaseController
       'pemandu' => $this->PemanduModel->where('id', $id)->first()
     ];
     return view('wisatawan/pemandu/index', $data);
+  }
+
+  public function profile()
+  {
+    $data = [
+      'wisatawan' => $this->WisatawanModel->where('id', session()->get('wisatawan_id'))->first()
+    ];
+    return view('wisatawan/profile/index', $data);
+  }
+
+  public function editProfile()
+  {
+    $data = [
+      'wisatawan' => $this->WisatawanModel->where('id', session()->get('wisatawan_id'))->first()
+    ];
+    return view('wisatawan/profile/edit', $data);
+  }
+
+  public function prosesEditProfile()
+  {
+    $rules = $this->validate([
+      'nama' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Nama harus diisi'
+        ]
+      ],
+      'email' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Email harus diisi',
+        ]
+      ],
+      'telepon' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Nomer Telepon harus diisi'
+        ]
+      ],
+    ]);
+
+    if (!$rules) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back()->withInput();
+    }
+
+
+
+    $id = $this->request->getVar('id');
+
+    $password = $this->request->getVar('password');
+    $passwordVerif = $this->request->getVar('passwordVerif');
+
+    date_default_timezone_set('Asia/Jakarta');
+    $image = $_FILES['file']['name'];
+
+
+
+
+    if (!$image) {
+      if (!$password) {
+        $data = [
+          'nama' => $this->request->getVar('nama'),
+          'email' => $this->request->getVar('email'),
+          'telepon' => $this->request->getVar('telepon'),
+        ];
+
+        $this->WisatawanModel->update($id, $data);
+        session()->setFlashdata('success', 'Data berhasil di perbarui');
+        return redirect()->to('/wisatawan/profile');
+      }
+
+      if ($password != $passwordVerif) {
+        session()->setFlashdata('error', 'Password konfirmasi tidak sama dengan password');
+        return redirect()->back()->withInput();
+      }
+
+      $passwordHas = password_hash($password, PASSWORD_BCRYPT);
+
+      $data = [
+        'nama' => $this->request->getVar('nama'),
+        'email' => $this->request->getVar('email'),
+        'telepon' => $this->request->getVar('telepon'),
+        'password' => $passwordHas,
+      ];
+
+      $this->WisatawanModel->update($id, $data);
+      session()->setFlashdata('success', 'Data berhasil di perbarui');
+      return redirect()->to('/wisatawan/profile');
+    }
+
+    $image = $this->request->getFile('file');
+    $rulesImage = $this->validate([
+      'file' => [
+        'uploaded[file]',
+        'mime_in[file,image/png,image/jpg,image/jpeg]',
+      ],
+    ]);
+
+    if (!$rulesImage) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back();
+    }
+
+    if (!$password) {
+      $file = $image->getName();
+      $info = pathinfo($file);
+
+      $file_name =  $info['filename'];
+      $slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $file_name));
+      $newNameImage = $slug . '_' . date('Y-m-d') . '_' . date('H-i-s') . '.' . $image->getClientExtension();
+      $image->move('assets/img/wisatawan/', $newNameImage);
+
+      $data = [
+        'nama' => $this->request->getVar('nama'),
+        'email' => $this->request->getVar('email'),
+        'telepon' => $this->request->getVar('telepon'),
+        'image' => $newNameImage
+      ];
+
+      $this->WisatawanModel->update($id, $data);
+      session()->setFlashdata('success', 'Data berhasil di perbarui');
+      return redirect()->to('/wisatawan/profile');
+    }
+
+
+    if ($password != $passwordVerif) {
+      session()->setFlashdata('error', 'Password konfirmasi tidak sama dengan password');
+      return redirect()->back()->withInput();
+    }
+
+    $passwordHas = password_hash($password, PASSWORD_BCRYPT);
+
+    $file = $image->getName();
+    $info = pathinfo($file);
+
+    $file_name =  $info['filename'];
+    $slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $file_name));
+    $newNameImage = $slug . '_' . date('Y-m-d') . '_' . date('H-i-s') . '.' . $image->getClientExtension();
+    $image->move('assets/img/wisatawan/', $newNameImage);
+
+    $data = [
+      'nama' => $this->request->getVar('nama'),
+      'email' => $this->request->getVar('email'),
+      'telepon' => $this->request->getVar('telepon'),
+      'password' => $passwordHas,
+      'image' => $newNameImage
+    ];
+
+    $this->WisatawanModel->update($id, $data);
+    session()->setFlashdata('success', 'Data berhasil di perbarui');
+    return redirect()->to('/wisatawan/profile');
+  }
+
+
+
+  public function konfirmasiPesanan()
+  {
+    $kota_id = $this->request->getVar('kota_id');
+    $pemandu_id = $this->request->getVar('pemandu_id');
+    $tanggal_keberangkatan = $this->request->getVar('tanggal_keberangkatan');
+    $tanggal_berakhir = $this->request->getVar('tanggal_berakhir');
+    $tanggal_pemesanan = $this->request->getVar('tanggal_pemesanan');
+
+    $kota = $this->KotaModel->where('id', $kota_id)->first();
+    $pemandu = $this->PemanduModel->where('id', $pemandu_id)->first();
+
+
+
+    $data = [
+      'kota' => $kota,
+      'kota_id' => $kota_id,
+      'pemandu' => $pemandu,
+      'tanggal_keberangkatan' => $tanggal_keberangkatan,
+      'tanggal_berakhir' => $tanggal_berakhir,
+      'tanggal_pemesanan' => $tanggal_pemesanan,
+    ];
+
+    return view('wisatawan/transaksi/konfirmasi', $data);
+  }
+
+  public function setPesanan()
+  {
+    $rules = $this->validate([
+      'kota_id' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Kota harus ada'
+        ]
+      ],
+
+      'tanggal_pemesanan' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Tanggal Pememsanan harus ada'
+        ]
+      ],
+      'tanggal_keberangkatan' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Tanggal keberangkatan harus ada'
+        ]
+      ],
+      'tanggal_berakhir' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Tanggal berakhir harus ada'
+        ]
+      ],
+      'pemandu_id' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Pemandu harus ada'
+        ]
+      ],
+    ]);
+
+    if (!$rules) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back();
+    }
+
+    $data = [
+      'kota_id' => $this->request->getVar('kota_id'),
+      'tanggal_pemesanan' => $this->request->getVar('tanggal_pemesanan'),
+      'tanggal_keberangkatan' => $this->request->getVar('tanggal_keberangkatan'),
+      'tanggal_berakhir' => $this->request->getVar('tanggal_berakhir'),
+      'pemandu_id' => $this->request->getVar('pemandu_id'),
+      'status' => 'belum dibayar',
+      'wisatawan_id' => session()->get('wisatawan_id'),
+    ];
+
+    $this->TransaksiModel->insert($data);
+    session()->setFlashdata('success', 'Berhasil melakukan transaksi');
+    return redirect()->to('/wisatawan/pemesanan');
+  }
+
+  public function pemesanan()
+  {
+    $data = [
+      'dataPemesanan' => $this->CustomModel->dataPesananByIdWisatawan(session()->get('wisatawan_id'))
+    ];
+    return view('wisatawan/pemesanan/index', $data);
   }
 }

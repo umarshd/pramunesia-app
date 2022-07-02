@@ -36,6 +36,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+$routes->get('/wisatawan/logout', 'Auth::logoutWisatawan');
+
 $routes->get('/wisatawan/login', 'Auth::loginWisatawan');
 $routes->post('/wisatawan/login/proses', 'Auth::prosesLoginWisatawan');
 $routes->get('/wisatawan/registrasi', 'Auth::registrasiWisatawan');
@@ -52,6 +54,16 @@ $routes->get('/tentang-kami', 'Landing::tentangKami');
 $routes->group('wisatawan', function ($routes) {
     $routes->get('/', 'Wisatawan::index');
 
+    $routes->get('profile', 'Wisatawan::profile');
+    $routes->get('profile/edit/(:segment)', 'Wisatawan::editProfile/$1');
+    $routes->post('profile/edit/proses', 'Wisatawan::prosesEditProfile');
+
+    $routes->get('pemesanan', 'Wisatawan::pemesanan');
+
+    $routes->get('transaksi/konfirmasi', 'Wisatawan::konfirmasiPesanan');
+    $routes->post('transaksi/konfirmasi/proses', 'Wisatawan::setPesanan');
+
+
     $routes->get('pemandu/(:segment)', 'Wisatawan::detailPemandu/$1');
 });
 
@@ -60,6 +72,8 @@ $routes->group('pemandu', function ($routes) {
 
     $routes->get('profile', 'Pemandu::profile');
     $routes->get('profile/edit/(:segment)', 'Pemandu::editProfile/$1');
+
+    $routes->get('kegiatan', 'Pemandu::kegiatan');
 });
 
 $routes->group('admin', function ($routes) {

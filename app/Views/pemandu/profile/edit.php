@@ -37,6 +37,10 @@
                   </div>
                 </div>
               </div>
+              <div class="form-group py-2 text-start">
+                <label class="form-label text-2">Image</label>
+                <input type="file" class="form-control" name="file" value="<?= old('nama') ?>">
+              </div>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
@@ -86,7 +90,7 @@
               </div>
 
               <div class="text-center mt-3 mb-2">
-                <button type="submit" class="btn btn-custom-3">Registrasi</button>
+                <button type="submit" class="btn btn-custom-3">Edit</button>
               </div>
             </form>
 

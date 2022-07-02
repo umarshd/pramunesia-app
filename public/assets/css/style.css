@@ -9,6 +9,7 @@ body {
   --clr-firefly: #112b3c;
   --clr-chatams: #205375;
   --clr-pumpkin: #f66b0e;
+  --clr-pumpkin-hover: rgb(224, 95, 8);
   --clr-soft-peace: #efefef;
   --clr-dark-grey: #d9d9d9;
 }
@@ -39,6 +40,11 @@ body {
 
 .btn-custom-3 {
   background-color: var(--clr-pumpkin);
+  color: white;
+}
+
+.btn-custom-3:hover {
+  background-color: var(--clr-pumpkin-hover);
   color: white;
 }
 

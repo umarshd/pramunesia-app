@@ -26,4 +26,15 @@ class CustomModel extends Model
 
     return $dbJadwal->get()->getResultArray();
   }
+
+  public function dataPesananByIdWisatawan($id)
+  {
+    $dbTransaksi  = $this->db->table('transaksi');
+
+    $dbTransaksi->where('wisatawan_id', $id);
+    $dbTransaksi->join('kota', 'kota.id=transaksi.kota_id')->select('transaksi.*, kota.nama as nama_kota');
+    $dbTransaksi->join('pemandu', 'pemandu.id=transaksi.pemandu_id')->select('pemandu.nama as nama_pemandu');
+
+    return $dbTransaksi->get()->getResultArray();
+  }
 }

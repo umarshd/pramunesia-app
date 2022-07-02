@@ -110,7 +110,7 @@
       <li class="nav-item nav-side">
         <a class="nav-link collapsed" href="<?= base_url() ?>/admin/kota">
           <i class="bi bi-grid"></i>
-          <span>kota</span>
+          <span>Kota</span>
         </a>
       </li>
       <li class="nav-item nav-side">

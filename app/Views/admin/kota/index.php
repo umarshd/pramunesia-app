@@ -3,12 +3,11 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Data Kota</h1>
+    <h1>Kota</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item">Tables</li>
-        <li class="breadcrumb-item active">Data</li>
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item active">Kota</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -16,14 +15,13 @@
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
-
         <div class="card p-3">
-          <div class="row">
+          <div class="row mb-3">
             <div class="col-lg-6">
-              <h5>Datatables</h5>
+              <h5 class="text-2 fw-bold">Data Kota</h5>
             </div>
             <div class="col-lg-6 text-end">
-              <a href="<?= base_url() ?>/admin/kota/tambah" class="btn btn-primary btn-sm">Tambah Kota</a>
+              <a href="<?= base_url() ?>/admin/kota/tambah" class="btn btn-custom-3 btn-sm">Tambah Kota</a>
             </div>
           </div>
           <?php if (session()->get('success')) : ?>
@@ -31,7 +29,7 @@
               <?= session()->get('success') ?>
             </div>
           <?php endif ?>
-          <table class="table datatable">
+          <table id="example" class="table table-striped dt-responsive nowrap" style="width:100%">
             <thead>
               <tr>
                 <th scope="col">No</th>

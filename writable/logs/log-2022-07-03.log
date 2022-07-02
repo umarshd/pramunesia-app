@@ -1,0 +1,12 @@
+CRITICAL - 2022-07-03 00:20:20 --> Undefined variable: 202207030020202
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 28.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(28): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: 202207030020202', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 28, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(259): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

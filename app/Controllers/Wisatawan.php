@@ -59,6 +59,21 @@ class Wisatawan extends BaseController
       return view('wisatawan/index', $data);
     }
 
+    if ($tanggal_keberangkatan > $tanggal_berakhir) {
+      $data = [
+        'dataKota' => $this->KotaModel->findAll(),
+        'dataDestinasi' => $this->DestinasiModel,
+        'dataTransaksi' => false,
+        'tanggal_keberangkatan' => null,
+        'kota_id' => null,
+        'tanggal_berakhir' => null,
+        'dataPemandu' => null,
+        'show' => false
+      ];
+
+      return view('wisatawan/index', $data);
+    }
+
     $data = [
       'dataKota' => $this->KotaModel->findAll(),
       'dataDestinasi' => $this->DestinasiModel,
@@ -302,6 +317,7 @@ class Wisatawan extends BaseController
 
     $data = [
       'kota_id' => $this->request->getVar('kota_id'),
+      'nomor_tiket' => $this->request->getVar('nomor_tiket'),
       'tanggal_pemesanan' => $this->request->getVar('tanggal_pemesanan'),
       'tanggal_keberangkatan' => $this->request->getVar('tanggal_keberangkatan'),
       'tanggal_berakhir' => $this->request->getVar('tanggal_berakhir'),
@@ -321,5 +337,14 @@ class Wisatawan extends BaseController
       'dataPemesanan' => $this->CustomModel->dataPesananByIdWisatawan(session()->get('wisatawan_id'))
     ];
     return view('wisatawan/pemesanan/index', $data);
+  }
+
+  public function pembayaran($nomorTiket = null)
+  {
+    $data = [
+      'tiket' => $this->CustomModel->dataTransaksiByNomorTiket($nomorTiket)[0]
+    ];
+
+    return view('wisatawan/pembayaran/index', $data);
   }
 }

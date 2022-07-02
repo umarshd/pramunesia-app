@@ -106,4 +106,18 @@ class CustomModel extends Model
 
     return $dbJadwal->get()->getResultArray();
   }
+
+  public function dataTransaksiByNomorTiket($nomorTiket)
+  {
+    $dbJadwal = $this->db->table('transaksi');
+
+    $dbJadwal->where('transaksi.nomor_tiket', $nomorTiket);
+    $dbJadwal->join('kota', 'kota.id=transaksi.kota_id')->select('transaksi.*, kota.nama as nama_kota');
+    $dbJadwal->join('pemandu', 'pemandu.id=transaksi.pemandu_id')->select('pemandu.nama as nama_pemandu');
+    $dbJadwal->join('wisatawan', 'wisatawan.id=transaksi.wisatawan_id')->select('wisatawan.nama as nama_wisatawan');
+    $dbJadwal->orderBy('id', 'DESC');
+
+
+    return $dbJadwal->get()->getResultArray();
+  }
 }

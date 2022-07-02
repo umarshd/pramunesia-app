@@ -65,6 +65,8 @@ $routes->group('wisatawan', ['filter' => 'authWisatawanFilter'], function ($rout
 
     $routes->get('pemesanan', 'Wisatawan::pemesanan');
 
+    $routes->get('pembayaran/(:segment)', 'Wisatawan::pembayaran/$1');
+
     $routes->get('transaksi/konfirmasi', 'Wisatawan::konfirmasiPesanan');
     $routes->post('transaksi/konfirmasi/proses', 'Wisatawan::setPesanan');
 

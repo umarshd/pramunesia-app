@@ -6,11 +6,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+  <!-- Favicons -->
+  <link href="<?= base_url() ?>/assets/icon-192x192.png" rel="icon">
+  <link href="<?= base_url() ?>/assets/icon-192x192.png" rel="apple-touch-icon">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
-  <title>Hello, world!</title>
+  <title>Pramunesia</title>
 </head>
 
 <body>
@@ -59,6 +64,13 @@
             <span>
               <a href="<?= base_url() ?>/pemandu/login">
                 Masuk sebagai Pemandu Wisata
+              </a>
+            </span>
+          </p>
+          <p class="my-3 text-3">
+            <span>
+              <a href="<?= base_url() ?>/">
+                Kembali ke beranda
               </a>
             </span>
           </p>

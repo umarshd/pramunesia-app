@@ -48,8 +48,8 @@
               <label class="form-label">Rekomendasi</label>
               <?= $destinasi['rekomendasi'] ?>
               <select name="rekomendasi" class="form-select">
-                <option <?php ($destinasi['rekomendasi'] == "ya") ? 'selected' : '' ?> value="ya">Ya</option>
-                <option <?php ($destinasi['rekomendasi'] == "no") ? 'selected' : '' ?> value="no">No</option>
+                <option <?= ($destinasi['rekomendasi'] == "ya") ? 'selected' : '' ?> value="ya">Ya</option>
+                <option <?= ($destinasi['rekomendasi'] == "tidak") ? 'selected' : '' ?> value="tidak">Tidak</option>
               </select>
             </div>
             <div class="form-group py-2">

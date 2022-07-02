@@ -16,19 +16,11 @@
   </div><!-- End Page Title -->
 
   <section class="section dashboard">
-    <div class="row">
+    <div class="row justify-content-center" style="min-height: 60vh;">
 
       <div class="col-lg-6">
         <div class="card p-3">
-          <div class="row">
-            <div class="col-lg-6">
-              <h5>Tambah Kota</h5>
-            </div>
-            <div class="col-lg-6 text-end">
-              <a href="<?= base_url() ?>/admin/kota" class="btn btn-primary btn-sm">kembali</a>
-            </div>
-          </div>
-
+          <h5 class="text-2 fw-bold">Tambah Kota</h5>
           <?php if (session()->get('error')) : ?>
             <div class="alert alert-danger my-2" role="alert">
               <?= session()->get('error') ?>
@@ -41,7 +33,7 @@
 
             </div>
             <div class="py-3 text-end">
-              <button class="btn btn-primary" type="submit">Kirim</button>
+              <button class="btn btn-custom-3" type="submit">Kirim</button>
 
             </div>
           </form>

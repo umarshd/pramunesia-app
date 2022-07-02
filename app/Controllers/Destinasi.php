@@ -4,22 +4,25 @@ namespace App\Controllers;
 
 use App\Models\KotaModel;
 use App\Models\DestinasiModel;
+use App\Models\CustomModel;
 
 class Destinasi extends BaseController
 {
   protected $KotaModel;
   protected $DestinasiModel;
+  protected $CustomModel;
 
   public function __construct()
   {
     $this->KotaModel = new KotaModel();
     $this->DestinasiModel = new DestinasiModel();
+    $this->CustomModel = new CustomModel();
   }
 
   public function index()
   {
     $data = [
-      'dataDestinasi' => $this->DestinasiModel->findAll()
+      'dataDestinasi' => $this->CustomModel->dataDestinasi()
     ];
     return view('admin/destinasi/index', $data);
   }

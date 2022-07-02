@@ -1,0 +1,138 @@
+CRITICAL - 2022-07-02 00:05:55 --> Undefined variable: tanggal_pemesanan
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 19.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_pemesanan', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 19, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(258): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:06:17 --> Undefined variable: tanggal_pemesanan
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 19.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_pemesanan', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 19, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(259): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:06:20 --> Undefined variable: tanggal_pemesanan
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 19.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_pemesanan', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 19, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(259): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:08:53 --> Trying to access array offset on value of type null
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 41.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 41, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(264): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:09:05 --> Trying to access array offset on value of type null
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 41.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 41, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(264): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:09:07 --> Trying to access array offset on value of type null
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 41.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 41, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(264): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:09:09 --> Trying to access array offset on value of type null
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 41.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 41, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(264): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:09:17 --> Trying to access array offset on value of type null
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 41.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 41, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(264): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-07-02 00:36:15 --> Unknown column 'wisatawan-id' in 'where clause'
+CRITICAL - 2022-07-02 00:36:15 --> Unknown column 'wisatawan-id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+WHERE `wisatawan-id` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+WHERE `wisatawan-id` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+WHERE `wisatawan-id` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `transaksi`.*, `kota`.`nama` as `nama_kota`, `pemandu`.`nama` as `nama_pemandu`
+FROM `transaksi`
+JOIN `kota` ON `kota`.`id`=`transaksi`.`kota_id`
+JOIN `pemandu` ON `pemandu`.`id`=`transaksi`.`pemandu_id`
+WHERE `wisatawan-id` = :wisatawan-id:', [...], false)
+ 5 APPPATH\Models\CustomModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Wisatawan.php(321): App\Models\CustomModel->dataPesananByIdWisatawan('2')
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->pemesanan()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-02 00:39:31 --> Undefined index: tanggal_berangkat
+in APPPATH\Views\wisatawan\pemesanan\index.php on line 20.
+ 1 APPPATH\Views\wisatawan\pemesanan\index.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: tanggal_berangkat', 'APPPATH\\Views\\wisatawan\\pemesanan\\index.php', 20, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\pemesanan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/pemesanan/index', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(323): view('wisatawan/pemesanan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->pemesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

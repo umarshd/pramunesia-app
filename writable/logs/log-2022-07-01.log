@@ -446,3 +446,67 @@ in APPPATH\Views\wisatawan\index.php on line 49.
  8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 21:28:10 --> Allowed memory size of 536870912 bytes exhausted (tried to allocate 266354688 bytes)
+in APPPATH\Views\wisatawan\index.php on line 53.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-07-01 21:28:30 --> Allowed memory size of 536870912 bytes exhausted (tried to allocate 266354688 bytes)
+in APPPATH\Views\wisatawan\index.php on line 53.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-07-01 21:36:22 --> A non-numeric value encountered
+in APPPATH\Views\wisatawan\index.php on line 52.
+ 1 APPPATH\Views\wisatawan\index.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'APPPATH\\Views\\wisatawan\\index.php', 52, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/index', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(72): view('wisatawan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 21:54:48 --> Cannot use object of type App\Models\WisatawanModel as array
+in APPPATH\Views\wisatawan\profile\index.php on line 17.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/profile/index', [], true)
+ 4 APPPATH\Controllers\Wisatawan.php(88): view('wisatawan/profile/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->profile()
+ 6 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 22:48:58 --> syntax error, unexpected 'if' (T_IF), expecting ';'
+in APPPATH\Controllers\Wisatawan.php on line 141.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(261): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Wisatawan.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(239): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Wisatawan')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Wisatawan')
+ 4 [internal function]: spl_autoload_call('App\\Controllers\\Wisatawan')
+ 5 SYSTEMPATH\CodeIgniter.php(846): class_exists('\\App\\Controllers\\Wisatawan', true)
+ 6 SYSTEMPATH\CodeIgniter.php(453): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 23:13:43 --> Undefined variable: tanggal_tanggal_berakhir
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 18.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: tanggal_tanggal_berakhir', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 18, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(251): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-07-01 23:19:23 --> Undefined variable: kota_id
+in APPPATH\Views\wisatawan\transaksi\konfirmasi.php on line 34.
+ 1 APPPATH\Views\wisatawan\transaksi\konfirmasi.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: kota_id', 'APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php', 34, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\wisatawan\\transaksi\\konfirmasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('wisatawan/transaksi/konfirmasi', [], true)
+ 5 APPPATH\Controllers\Wisatawan.php(257): view('wisatawan/transaksi/konfirmasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Wisatawan->konfirmasiPesanan()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Wisatawan))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

@@ -22,7 +22,7 @@
                 <p>Status Pemesanan : <?php if ($pesanan['status'] == 'belum dibayar') : ?>
                     <span class="badge bg-danger">Belum dibayar</span>
                   <?php elseif ($pesanan['status'] == 'sudah dibayar') : ?>
-                    <span class="badge bg-success">Danger</span>
+                    <span class="badge bg-success">Sudah dibayar</span>
                   <?php endif ?>
                 </p>
                 <div class="text-end">

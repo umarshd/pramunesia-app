@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Filters\AuthAdminFilter;
+use App\Filters\AuthPemanduFilter;
+use App\Filters\AuthWisatawanFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -23,6 +26,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'authWisatawanFilter' => AuthWisatawanFilter::class,
+        'authPemanduFilter' => AuthPemanduFilter::class,
+        'authAdminFilter' => AuthAdminFilter::class
     ];
 
     /**

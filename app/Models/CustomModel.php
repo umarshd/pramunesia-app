@@ -69,4 +69,14 @@ class CustomModel extends Model
 
     return $dbTransaksi->get()->getResultArray();
   }
+
+  public function dataDestinasi()
+  {
+    $dbDestinasi = $this->db->table('destinasi');
+    $dbDestinasi->join('kota', 'kota.id=destinasi.kota_id')->select('destinasi.*, kota.nama as nama_kota');
+
+    $dbDestinasi->orderBy('nama', 'ASC');
+
+    return $dbDestinasi->get()->getResultArray();
+  }
 }

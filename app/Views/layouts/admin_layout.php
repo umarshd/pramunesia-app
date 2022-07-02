@@ -29,6 +29,13 @@
   <!-- Template Main CSS File -->
   <link href="<?= base_url() ?>/assets/NiceAdmin/assets/css/style.css" rel="stylesheet">
 
+  <!-- Datatable -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
+
+  <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
+
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.2
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -69,7 +76,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>/admin/logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -95,17 +102,30 @@
         </a>
       </li>
       <li class="nav-item nav-side">
+        <a class="nav-link collapsed" href="<?= base_url() ?>/admin/destinasi">
+          <i class="bi bi-grid"></i>
+          <span>Destinasi</span>
+        </a>
+      </li>
+      <li class="nav-item nav-side">
         <a class="nav-link collapsed" href="<?= base_url() ?>/admin/kota">
           <i class="bi bi-grid"></i>
           <span>kota</span>
         </a>
       </li>
       <li class="nav-item nav-side">
-        <a class="nav-link collapsed" href="<?= base_url() ?>/admin/destinasi">
+        <a class="nav-link collapsed" href="<?= base_url() ?>/admin/pemandu">
           <i class="bi bi-grid"></i>
-          <span>Destrinasi</span>
+          <span>Pemandu</span>
         </a>
       </li>
+      <li class="nav-item nav-side">
+        <a class="nav-link collapsed" href="<?= base_url() ?>/admin/wisatawan">
+          <i class="bi bi-grid"></i>
+          <span>Wisatawan</span>
+        </a>
+      </li>
+
 
 
 
@@ -148,6 +168,21 @@
   <!-- Template Main JS File -->
   <script src="<?= base_url() ?>/assets/NiceAdmin/assets/js/main.js"></script>
   <script src="<?= base_url() ?>/assets/js/jquery.min.js"></script>
+
+
+  <!-- Datatable -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap5.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    });
+  </script>
+
   <script src="<?= base_url() ?>/assets/js/main.js"></script>
 
 </body>

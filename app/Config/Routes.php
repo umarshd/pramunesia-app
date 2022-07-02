@@ -56,7 +56,7 @@ $routes->post('/admin/login/proses', 'Auth::prosesLoginAdmin');
 $routes->get('/', 'Landing::index');
 $routes->get('/tentang-kami', 'Landing::tentangKami');
 
-$routes->group('wisatawan', function ($routes) {
+$routes->group('wisatawan', ['filter' => 'authWisatawanFilter'], function ($routes) {
     $routes->get('/', 'Wisatawan::index');
 
     $routes->get('profile', 'Wisatawan::profile');
@@ -72,7 +72,7 @@ $routes->group('wisatawan', function ($routes) {
     $routes->get('pemandu/(:segment)', 'Wisatawan::detailPemandu/$1');
 });
 
-$routes->group('pemandu', function ($routes) {
+$routes->group('pemandu', ['filter' => 'authPemanduFilter'], function ($routes) {
     $routes->get('/', 'Pemandu::index');
 
     $routes->get('profile', 'Pemandu::profile');
@@ -83,7 +83,7 @@ $routes->group('pemandu', function ($routes) {
     $routes->get('jadwal', 'Pemandu::jadwal');
 });
 
-$routes->group('admin', function ($routes) {
+$routes->group('admin', ['filter' => 'authAdminFilter'], function ($routes) {
 
     $routes->get('dashboard', 'Admin::index');
 

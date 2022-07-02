@@ -32,10 +32,10 @@
               <a class="nav-link" href="<?= base_url() ?>/tentang-kami">Tentang Kami</a>
             </li>
             <li class="nav-item mx-lg-2 d-block mt-2 mt-lg-0">
-              <a class="nav-link btn btn-custom-3 px-3 d-block" href="<?= base_url() ?>/wisatawan/registrasi">Registrasi</a>
+              <a class="nav-link btn btn-secondary px-3 d-block text-white" href="<?= base_url() ?>/wisatawan/registrasi">Registrasi</a>
             </li>
             <li class="nav-item mx-lg-2 d-block mt-2 mt-lg-0">
-              <a class="nav-link btn btn-custom-3 px-3 d-block" href="<?= base_url() ?>/wisatawan/login">Login</a>
+              <a class="nav-link btn btn-custom-3 px-3 d-block text-white" href="<?= base_url() ?>/wisatawan/login">Login</a>
             </li>
 
           </ul>

@@ -21,6 +21,14 @@ class Auth extends BaseController
 
   public function loginWisatawan()
   {
+    if (session()->get('is_login_wisatawan')) {
+      return redirect()->to('/wisatawan');
+    } elseif (session()->get('is_login_pemandu')) {
+      return redirect()->to('/pemandu');
+    } elseif (session()->get('is_login_admin')) {
+      return view('/admin/dashboard');
+    }
+
     return view('auth/login-wisatawan');
   }
   public function registrasiWisatawan()
@@ -139,6 +147,13 @@ class Auth extends BaseController
 
   public function loginPemandu()
   {
+    if (session()->get('is_login_wisatawan')) {
+      return redirect()->to('/wisatawan');
+    } elseif (session()->get('is_login_pemandu')) {
+      return redirect()->to('/pemandu');
+    } elseif (session()->get('is_login_admin')) {
+      return view('/admin/dashboard');
+    }
     return view('auth/login-pemandu');
   }
 
@@ -279,6 +294,13 @@ class Auth extends BaseController
 
   public function loginAdmin()
   {
+    if (session()->get('is_login_wisatawan')) {
+      return redirect()->to('/wisatawan');
+    } elseif (session()->get('is_login_pemandu')) {
+      return redirect()->to('/pemandu');
+    } elseif (session()->get('is_login_admin')) {
+      return view('/admin/dashboard');
+    }
     return view('auth/login-admin');
   }
 

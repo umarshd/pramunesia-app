@@ -106,7 +106,7 @@ class Auth extends BaseController
     }
 
     $password = $this->request->getVar('password');
-    $passwordVerif = $this->request->getVar('passwordVerfif');
+    $passwordVerif = $this->request->getVar('passwordVerif');
 
     if ($password != $passwordVerif) {
       session()->setFlashdata('error', 'Password konfirmasi tidak sama dengan password');
@@ -257,5 +257,11 @@ class Auth extends BaseController
     $this->PemanduModel->insert($data);
     session()->setFlashdata('success', 'Berhasil registrasi');
     return redirect()->to('/pemandu/login');
+  }
+
+  public function logoutWisatawan()
+  {
+    session()->destroy();
+    return redirect()->to('wisatawan/login');
   }
 }

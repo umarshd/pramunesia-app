@@ -16,4 +16,14 @@ class CustomModel extends Model
 
     return $dbJadwal->get()->getResultArray();
   }
+
+  public function jadwalMemanduTerbaru($id)
+  {
+    $dbJadwal = $this->db->table('transaksi');
+
+    $dbJadwal->where('pemandu_id', $id);
+    $dbJadwal->limit(5);
+
+    return $dbJadwal->get()->getResultArray();
+  }
 }

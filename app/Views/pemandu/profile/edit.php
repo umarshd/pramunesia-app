@@ -8,9 +8,9 @@
           <div class="col-lg-4 text-center">
             <div class="bg-custom-2 border-radius-10 p-4 d-flex align-items-center flex-column justify-content-center" style="height: 100%;">
               <div class="d-flex justify-content-center">
-                <img src="<?= base_url() ?>/assets/img/pemandu/default.png" alt="" class="img-fluid">
+                <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="img-fluid">
               </div>
-              <h4 class="text-white py-3">Nama Pemandu</h4>
+              <h4 class="text-white py-3"><?= $pemandu['nama'] ?></h4>
 
             </div>
           </div>
@@ -20,38 +20,38 @@
               <a href="<?= base_url() ?>/pemandu/profile" class="btn btn-custom-3 btn-sm">Kembali</a>
             </div>
 
-            <form action="" method="post">
+            <form action="<?= base_url() ?>/pemandu/profile/edit/proses" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2">No KTA</label>
-                    <input type="text" class="form-control" name="id" value="<?= old('noKta') ?>" hidden>
-                    <input type="text" class="form-control" name="noKta" value="<?= old('noKta') ?>" hidden>
-                    <input type="text" class="form-control" name="noKtaDisplay" value="<?= old('noKta') ?>" disabled>
+                    <input type="text" class="form-control" name="id" value="<?= $pemandu['id'] ?>" hidden>
+                    <input type="text" class="form-control" name="noKta" value="<?= $pemandu['noKta'] ?>" hidden>
+                    <input type="text" class="form-control" name="noKtaDisplay" value="<?= $pemandu['noKta'] ?>" disabled>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2">Nama</label>
-                    <input type="text" class="form-control" name="nama" value="<?= old('nama') ?>">
+                    <input type="text" class="form-control" name="nama" value="<?= $pemandu['nama'] ?>">
                   </div>
                 </div>
               </div>
               <div class="form-group py-2 text-start">
                 <label class="form-label text-2">Image</label>
-                <input type="file" class="form-control" name="file" value="<?= old('nama') ?>">
+                <input type="file" class="form-control" name="file">
               </div>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2">Email</label>
-                    <input type="email" class="form-control" name="email" value="<?= old('email') ?>">
+                    <input type="email" class="form-control" name="email" value="<?= $pemandu['email'] ?>">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2">No Telepon</label>
-                    <input type="text" class="form-control" name="telepon" value="<?= old('telepon') ?>">
+                    <input type="text" class="form-control" name="telepon" value="<?= $pemandu['telepon'] ?>">
                   </div>
                 </div>
               </div>
@@ -59,17 +59,16 @@
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" value="<?= old('alamat') ?>">
+                    <input type="text" class="form-control" name="alamat" value="<?= $pemandu['alamat'] ?>">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2"> Organisasi/Lembaga/Individu</label>
                     <select name="jenis" class="form-select">
-                      <option disabled selected>Pilih Jenis Akun</option>
-                      <option value="organisasi">Organisasi</option>
-                      <option value="lembaga">Lembaga</option>
-                      <option value="individu">Individu</option>
+                      <option <?= ($pemandu['jenis'] == 'organisasi') ? 'selected' : '' ?> value="organisasi">Organisasi</option>
+                      <option <?= ($pemandu['jenis'] == 'lembaga') ? 'selected' : '' ?> value="lembaga">Lembaga</option>
+                      <option <?= ($pemandu['jenis'] == 'individu') ? 'selected' : '' ?> value="individu">Individu</option>
                     </select>
                   </div>
                 </div>

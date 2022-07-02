@@ -38,7 +38,7 @@
               <?= session()->get('success') ?>
             </div>
           <?php endif ?>
-          <form action="<?= base_url() ?>/wisatawan/login/proses" method="post">
+          <form action="<?= base_url() ?>/pemandu/login/proses" method="post">
             <div class="form-group py-2 text-start">
               <label class="form-label text-white">Email</label>
               <input type="email" class="form-control" name="email" value="<?= old('email') ?>">

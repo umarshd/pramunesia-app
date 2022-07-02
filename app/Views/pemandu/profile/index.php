@@ -8,10 +8,12 @@
           <div class="col-lg-6 text-center">
             <div class="bg-custom-2 border-radius-10 p-4">
               <div class="d-flex justify-content-center">
-                <img src="<?= base_url() ?>/assets/img/pemandu/default.png" alt="" class="img-fluid">
+                <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
               </div>
-              <h4 class="text-white py-3">Nama Pemandu</h4>
-              <i class="fas fa-edit text-3" style="font-size: 200%;"></i>
+              <h4 class="text-white py-3"><?= $pemandu['nama'] ?></h4>
+              <a href="<?= base_url('/pemandu/profile/edit/' . $pemandu['id']) ?>">
+                <i class="fas fa-edit text-3" style="font-size: 200%;"></i>
+              </a>
             </div>
           </div>
           <div class="col-lg-6">

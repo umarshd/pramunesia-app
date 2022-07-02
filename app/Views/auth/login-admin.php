@@ -23,9 +23,8 @@
       </div>
       <div class="col-lg-6 bg-main py-4 text-center">
 
-        <h6 class="text-white">Masuk</h6>
+        <h6 class="text-white">Masuk sebagai Admin</h6>
         <h3 class="my-4 text-white">Selamat Datang</h3>
-        <p class="text-white">Masuk Sekarang dan Mulai perjalanan Anda bersama kami</p>
 
         <div class="container">
           <?php if (session()->get('error')) : ?>
@@ -38,7 +37,7 @@
               <?= session()->get('success') ?>
             </div>
           <?php endif ?>
-          <form action="<?= base_url() ?>/wisatawan/login/proses" method="post">
+          <form action="<?= base_url() ?>/admin/login/proses" method="post">
             <div class="form-group py-2 text-start">
               <label class="form-label text-white">Email</label>
               <input type="email" class="form-control" name="email" value="<?= old('email') ?>">
@@ -54,21 +53,7 @@
           </form>
         </div>
 
-        <div class="text-center">
-          <p class="my-3 text-3">
-            <span>
-              <a href="<?= base_url() ?>/pemandu/login">
-                Masuk sebagai Pemandu Wisata
-              </a>
-            </span>
-          </p>
-          <p class="mt-4 mb-0 text-white">Belum punya akun?</p>
-          <p class="">
-            <span>
-              <a class="text-3" href="<?= base_url() ?>/wisatawan/registrasi">Registrasi Sekarang</a>
-            </span>
-          </p>
-        </div>
+
       </div>
     </div>
   </div>

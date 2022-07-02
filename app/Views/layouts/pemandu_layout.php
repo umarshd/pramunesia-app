@@ -10,6 +10,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap5.min.css">
+
   <link rel="stylesheet" href="<?= base_url() ?>/assets/css/style.css">
   <title>Hello, world!</title>
 </head>
@@ -32,12 +35,47 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= base_url() ?>/tentang-kami">Tentang Kami</a>
             </li>
-            <li class="nav-item mx-lg-2 d-block mt-2 mt-lg-0">
-              <a class="nav-link btn btn-custom-3 px-3 d-block" href="<?= base_url() ?>/wisatawan/registrasi">Registrasi</a>
-            </li>
-            <li class="nav-item mx-lg-2 d-block mt-2 mt-lg-0">
-              <a class="nav-link btn btn-custom-3 px-3 d-block" href="<?= base_url() ?>/wisatawan/login">Login</a>
-            </li>
+            <?php if (session()->get('pemandu_id')) : ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user h4"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/pemandu">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/pemandu/profile/">Akun</a></li>
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/pemandu/logout">Keluar</a></li>
+                </ul>
+              </li>
+            <?php elseif (session()->get('wisatawan_id')) : ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user h4"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/wisatawan">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/wisatawan/profile/">Akun</a></li>
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/wisatawan/logout">Keluar</a></li>
+                </ul>
+              </li>
+            <?php elseif (session()->get('admin_id')) : ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user h4"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/admin/dashboard">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="<?= base_url() ?>/admin/logout">Keluar</a></li>
+                </ul>
+              </li>
+            <?php else : ?>
+              <li class="nav-item mx-lg-2 d-block mt-2 mt-lg-0">
+                <a class="nav-link btn btn-secondary px-3 d-block text-white" href="<?= base_url() ?>/wisatawan/registrasi">Registrasi</a>
+              </li>
+              <li class="nav-item mx-lg-2 d-block mt-2 mt-lg-0">
+                <a class="nav-link btn btn-custom-3 px-3 d-block text-white" href="<?= base_url() ?>/wisatawan/login">Login</a>
+              </li>
+            <?php endif ?>
+
 
           </ul>
         </div>
@@ -51,6 +89,20 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="<?= base_url() ?>/assets/js/jquery.min.js"></script>
+
+  <!-- Datatable -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap5.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    });
+  </script>
+
   <script src="<?= base_url() ?>/assets/js/main.js"></script>
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--

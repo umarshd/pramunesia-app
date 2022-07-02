@@ -37,6 +37,8 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 $routes->get('/wisatawan/logout', 'Auth::logoutWisatawan');
+$routes->get('/admin/logout', 'Auth::logoutAdmin');
+$routes->get('/pemandu/logout', 'Auth::logoutPemandu');
 
 $routes->get('/wisatawan/login', 'Auth::loginWisatawan');
 $routes->post('/wisatawan/login/proses', 'Auth::prosesLoginWisatawan');
@@ -47,6 +49,9 @@ $routes->get('/pemandu/login', 'Auth::loginPemandu');
 $routes->post('/pemandu/login/proses', 'Auth::prosesLoginPemandu');
 $routes->get('/pemandu/registrasi', 'Auth::registrasiPemandu');
 $routes->post('/pemandu/registrasi/proses', 'Auth::prosesRegistrasiPemandu');
+
+$routes->get('/admin/login', 'Auth::loginAdmin');
+$routes->post('/admin/login/proses', 'Auth::prosesLoginAdmin');
 
 $routes->get('/', 'Landing::index');
 $routes->get('/tentang-kami', 'Landing::tentangKami');
@@ -72,11 +77,30 @@ $routes->group('pemandu', function ($routes) {
 
     $routes->get('profile', 'Pemandu::profile');
     $routes->get('profile/edit/(:segment)', 'Pemandu::editProfile/$1');
+    $routes->post('profile/edit/proses', 'Pemandu::prosesEditProfile');
 
     $routes->get('kegiatan', 'Pemandu::kegiatan');
+    $routes->get('jadwal', 'Pemandu::jadwal');
 });
 
 $routes->group('admin', function ($routes) {
+
+    $routes->get('dashboard', 'Admin::index');
+
+    $routes->get('wisatawan', 'Admin::indexWisatawan');
+    $routes->get('wisatawan/tambah', 'Admin::tambahWisatawan');
+    $routes->post('wisatawan/tambah/proses', 'Admin::prosestambahWisatawan');
+    $routes->post('wisatawan/edit/proses', 'Admin::prosesEditWisatawan');
+    $routes->get('wisatawan/delete/(:segment)', 'Admin::deleteWisatawan/$1');
+    $routes->get('wisatawan/edit/(:segment)', 'Admin::editWisatawan/$1');
+
+    $routes->get('pemandu', 'Admin::indexPemandu');
+    $routes->get('pemandu/tambah', 'Admin::tambahPemandu');
+    $routes->post('pemandu/tambah/proses', 'Admin::prosestambahPemandu');
+    $routes->post('pemandu/edit/proses', 'Admin::prosesEditPemandu');
+    $routes->get('pemandu/delete/(:segment)', 'Admin::deletePemandu/$1');
+    $routes->get('pemandu/edit/(:segment)', 'Admin::editPemandu/$1');
+
     $routes->get('kota', 'Kota::index');
     $routes->get('kota/tambah', 'Kota::tambah');
     $routes->post('kota/tambah/proses', 'Kota::prosestambah');

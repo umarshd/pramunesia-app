@@ -55,6 +55,13 @@ $routes->group('wisatawan', function ($routes) {
     $routes->get('pemandu/(:segment)', 'Wisatawan::detailPemandu/$1');
 });
 
+$routes->group('pemandu', function ($routes) {
+    $routes->get('/', 'Pemandu::index');
+
+    $routes->get('profile', 'Pemandu::profile');
+    $routes->get('profile/edit/(:segment)', 'Pemandu::editProfile/$1');
+});
+
 $routes->group('admin', function ($routes) {
     $routes->get('kota', 'Kota::index');
     $routes->get('kota/tambah', 'Kota::tambah');

@@ -51,6 +51,22 @@ $(function () {
   $("#txtDate2").attr("min", minDate);
 });
 
+$(function () {
+  const getRingkasanPemandu = $(".ringkasanPemandu");
+  getRingkasanPemandu.each(function () {
+    const displayRingkasan = $(".displayRingkasan");
+    const string = this.value;
+
+    if (string.length > 20) {
+      console.log(string.substring(0, 10));
+      console.log((displayRingkasan.innerText = string.substring(0, 10)));
+      console.log(displayRingkasan);
+    } else {
+      console.log("20 kurang");
+    }
+  });
+});
+
 // fungsi delete
 function confirmToDelete(el) {
   $("#delete-button").attr("href", el.dataset.href);

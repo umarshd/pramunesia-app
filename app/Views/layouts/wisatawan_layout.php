@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="dicoding:email" content="kusumarahmah2@gmail.com">
 
   <!-- Favicons -->
   <link href="<?= base_url() ?>/assets/icon-192x192.png" rel="icon">
@@ -95,8 +95,10 @@
   <script src="<?= base_url() ?>/assets/js/main.js"></script>
 
   <script>
-    var myCarousel = document.querySelector('#myCarousel')
-    var carousel = new bootstrap.Carousel(myCarousel)
+    let carousel = $('.carousel-item');
+    for (i = 0; i <= carousel.length - 1; i++) {
+      console.log(carousel[i]);
+    }
   </script>
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--

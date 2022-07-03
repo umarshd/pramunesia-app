@@ -93,6 +93,13 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <label class="form-label">Ringkasan</label>
+                <textarea name="ringkasan" id="" cols="30" rows="5" class="form-control"><?= $pemandu['ringkasan'] ?></textarea>
+                <small class="text-danger fst-italic">*Maksimal 100 karakter yang ditampilkan</small>
+              </div>
+            </div>
 
             <div class="text-end mt-3 mb-2">
               <button type="submit" class="btn btn-custom-3">Edit</button>

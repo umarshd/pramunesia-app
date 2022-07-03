@@ -16,7 +16,7 @@
             <?php foreach ($dataPemesanan as $pesanan) : ?>
               <div class="col-lg-6 mt-3">
                 <div class=" bg-custom-2 border-0 border-radius-10 p-4 text-white">
-                  <h5>Kota Tujuan : <?= $pesanan['nama_kota'] ?> </h5>
+                  <h5>Kota Tujuan : <?= $pesanan['nama_kota'] ?> <small class="fw-normal">( <?= $pesanan['nomor_tiket'] ?>)</small> </h5>
                   <p>Tanggal pemesanan : <?= $pesanan['tanggal_pemesanan'] ?> </p>
                   <p>Tanggal berlibur : <?= $pesanan['tanggal_keberangkatan'] ?> s/d <?= $pesanan['tanggal_berakhir'] ?> </p>
                   <p>Nama Pemandu : <?= $pesanan['nama_pemandu'] ?> </p>
@@ -30,7 +30,7 @@
                     <?php if ($pesanan['status'] == 'belum dibayar') : ?>
                       <a href="<?= base_url('/wisatawan/pembayaran/' . $pesanan['nomor_tiket']) ?>" class="btn btn-secondary">Bayar</a>
                     <?php elseif ($pesanan['status'] == 'sudah dibayar') : ?>
-                      <a href="" class="btn btn-custom-3">Cetak Tiket</a>
+                      <a href="<?= base_url('/wisatawan/pemesanan/tiket/' . $pesanan['nomor_tiket']) ?>" class="btn btn-custom-3">Detail Tiket</a>
                     <?php endif ?>
 
 

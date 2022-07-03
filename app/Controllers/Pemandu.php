@@ -4,17 +4,19 @@ namespace App\Controllers;
 
 use App\Models\PemanduModel;
 use App\Models\CustomModel;
-use CodeIgniter\Files\Exceptions\FileNotFoundException;
+use App\Models\KegiatanModel;
 
 class Pemandu extends BaseController
 {
   protected $PemanduModel;
   protected $CustomModel;
+  protected $KegiatanModel;
 
   public function __construct()
   {
     $this->PemanduModel = new PemanduModel();
     $this->CustomModel = new CustomModel();
+    $this->KegiatanModel = new KegiatanModel();
   }
 
   public function index()
@@ -51,6 +53,12 @@ class Pemandu extends BaseController
         'rules' => 'required',
         'errors' => [
           'required' => 'Nomer Kta harus diisi'
+        ]
+      ],
+      'ringkasan' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Ringkasan harus diisi'
         ]
       ],
       'nama' => [
@@ -112,6 +120,7 @@ class Pemandu extends BaseController
           'telepon' => $this->request->getVar('telepon'),
           'alamat' => $this->request->getVar('alamat'),
           'jenis' => $this->request->getVar('jenis'),
+          'ringkasan' => $this->request->getVar('ringkasan'),
         ];
 
         $this->PemanduModel->update($id, $data);
@@ -133,6 +142,7 @@ class Pemandu extends BaseController
         'telepon' => $this->request->getVar('telepon'),
         'alamat' => $this->request->getVar('alamat'),
         'jenis' => $this->request->getVar('jenis'),
+        'ringkasan' => $this->request->getVar('ringkasan'),
         'password' => $passwordHas,
       ];
 
@@ -170,6 +180,7 @@ class Pemandu extends BaseController
         'telepon' => $this->request->getVar('telepon'),
         'alamat' => $this->request->getVar('alamat'),
         'jenis' => $this->request->getVar('jenis'),
+        'ringkasan' => $this->request->getVar('ringkasan'),
         'image' => $newNameImage
       ];
 
@@ -201,6 +212,7 @@ class Pemandu extends BaseController
       'telepon' => $this->request->getVar('telepon'),
       'alamat' => $this->request->getVar('alamat'),
       'jenis' => $this->request->getVar('jenis'),
+      'ringkasan' => $this->request->getVar('ringkasan'),
       'password' => $passwordHas,
       'image' => $newNameImage
     ];
@@ -212,7 +224,10 @@ class Pemandu extends BaseController
 
   public function kegiatan()
   {
-    return view('pemandu/kegiatan/index');
+    $data = [
+      'dataKegiatan' => $this->CustomModel->dataKegiatanByIdPemandu(session()->get('pemandu_id'))
+    ];
+    return view('pemandu/kegiatan/index', $data);
   }
 
   public function jadwal()
@@ -222,5 +237,60 @@ class Pemandu extends BaseController
     ];
 
     return view('pemandu/jadwal/index', $data);
+  }
+
+  public function tambahKegiatan()
+  {
+    return view('pemandu/kegiatan/tambah');
+  }
+
+  public function prosesTambahKegiatan()
+  {
+    $rules = $this->validate([
+      'deskripsi' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Deskripsi harus di isi'
+        ]
+      ],
+      'file' => [
+        'uploaded[file]',
+        'mime_in[file,image/png,image/jpg,image/jpeg]',
+      ],
+    ]);
+
+    if (!$rules) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back()->withInput();
+    }
+
+    date_default_timezone_set('Asia/Jakarta');
+    $image = $this->request->getFile('file');
+
+    $file = $image->getName();
+    $info = pathinfo($file);
+
+    $file_name =  $info['filename'];
+    $slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $file_name));
+    $newNameImage = $slug . '_' . date('Y-m-d') . '_' . date('H-i-s') . '.' . $image->getClientExtension();
+    $image->move('assets/img/pemandu/kegiatan/', $newNameImage);
+
+    $data = [
+      'pemandu_id' => $this->request->getVar('pemandu_id'),
+      'deskripsi' => $this->request->getVar('deskripsi'),
+      'image' => $newNameImage,
+
+    ];
+
+    $this->KegiatanModel->insert($data);
+    session()->setFlashdata('success', 'Data berhasil ditambahkan');
+    return redirect()->to('/pemandu/kegiatan');
+  }
+
+  public function deleteKegiatan($id = null)
+  {
+    $this->KegiatanModel->delete($id);
+    session()->setFlashdata('suceess', 'Data berhasil dihapus');
+    return redirect()->to('/pemandu/kegiatan');
   }
 }

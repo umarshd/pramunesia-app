@@ -48,7 +48,6 @@ class Wisatawan extends BaseController
     if (!$kota_id && $tanggal_keberangkatan && $tanggal_berakhir) {
       $data = [
         'dataKota' => $this->KotaModel->findAll(),
-        'dataDestinasi' => $this->DestinasiModel,
         'dataTransaksi' => false,
         'tanggal_keberangkatan' => null,
         'kota_id' => null,
@@ -62,7 +61,6 @@ class Wisatawan extends BaseController
     if ($tanggal_keberangkatan > $tanggal_berakhir) {
       $data = [
         'dataKota' => $this->KotaModel->findAll(),
-        'dataDestinasi' => $this->DestinasiModel,
         'dataTransaksi' => false,
         'tanggal_keberangkatan' => null,
         'kota_id' => null,
@@ -76,21 +74,23 @@ class Wisatawan extends BaseController
 
     $data = [
       'dataKota' => $this->KotaModel->findAll(),
-      'dataDestinasi' => $this->DestinasiModel,
       'dataTransaksi' => $dataTransaksi,
       'dataPemandu' => $this->PemanduModel->findAll(),
       'tanggal_keberangkatan' => $tanggal_keberangkatan,
       'kota_id' => $kota_id,
       'tanggal_berakhir' => $tanggal_berakhir,
-      'show' => true
+      'show' => true,
+      'dataDestinasi' => $this->CustomModel->dataDestinasiByIdKota($kota_id)
     ];
+
     return view('wisatawan/index', $data);
   }
 
   public function detailPemandu($id = null)
   {
     $data = [
-      'pemandu' => $this->PemanduModel->where('id', $id)->first()
+      'pemandu' => $this->PemanduModel->where('id', $id)->first(),
+      'dataKegiatan' => $this->CustomModel->dataKegiatanByIdPemandu($id)
     ];
     return view('wisatawan/pemandu/index', $data);
   }
@@ -346,5 +346,23 @@ class Wisatawan extends BaseController
     ];
 
     return view('wisatawan/pembayaran/index', $data);
+  }
+
+  public function tiketPemesanan($nomorTiket)
+  {
+    $data = [
+      'tiket' => $this->CustomModel->dataTransaksiByNomorTiket($nomorTiket)[0]
+    ];
+
+    return view('wisatawan/pemesanan/tiket', $data);
+  }
+
+  public function cetakTiket($nomorTiket)
+  {
+    $data = [
+      'tiket' => $this->CustomModel->dataTransaksiByNomorTiket($nomorTiket)[0]
+    ];
+
+    return view('wisatawan/pemesanan/cetak', $data);
   }
 }

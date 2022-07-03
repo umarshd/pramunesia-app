@@ -120,4 +120,25 @@ class CustomModel extends Model
 
     return $dbJadwal->get()->getResultArray();
   }
+
+  public function dataKegiatanByIdPemandu($id)
+  {
+    $dbKegiatan = $this->db->table('kegiatan');
+
+    $dbKegiatan->where('pemandu_id', $id);
+    $dbKegiatan->orderBy('id', 'DESC');
+
+
+    return $dbKegiatan->get()->getResultArray();
+  }
+
+  public function dataDestinasiByIdKota($id)
+  {
+    $dbDestinasi = $this->db->table('destinasi');
+    $dbDestinasi->where('rekomendasi', 'ya');
+
+    $dbDestinasi->where('kota_id', $id);
+
+    return $dbDestinasi->get()->getResultArray();
+  }
 }

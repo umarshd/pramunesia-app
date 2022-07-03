@@ -69,8 +69,14 @@
         <p>Demi kenyamanan dan keamanan bersama, mohon untuk TIDAK MEMBAGIKAN bukti transfer atau konfirmasi pemesanan
           kepada siapapun selain mengirimkannya kepada <a href="https://api.whatsapp.com/send/?phone=6285723391694&text=Konfirmasi%20pemesanan%20dengan%20nomor%20Tiket%20%3A%<?= $tiket['nomor_tiket'] ?>" style="text-decoration: none ; color:black">Whatsapp Official <span class="text-3">PRAMUNESIA</span></a> .</p>
 
-
+        <hr>
+        <div class="text-end">
+          <a href="<?= base_url() ?>/wisatawan/pemesanan" class="btn btn-secondary">Unggah Nanti</a>
+          <a href="https://api.whatsapp.com/send/?phone=6285723391694&text=Konfirmasi%20pemesanan%20dengan%20nomor%20Tiket%20%3A%<?= $tiket['nomor_tiket'] ?>" class="btn btn-custom-3">Unggah Sekarang</a>
+        </div>
       </div>
+
+
     </div>
   </div>
   <?= $this->endSection() ?>

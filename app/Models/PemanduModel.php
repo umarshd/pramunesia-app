@@ -18,5 +18,6 @@ class PemanduModel extends Model
     'image',
     'alamat',
     'jenis',
+    'ringkasan',
   ];
 }

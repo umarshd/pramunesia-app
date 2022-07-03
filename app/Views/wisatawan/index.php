@@ -3,6 +3,7 @@
 <div class="container my-3" style="min-height: 73vh ;">
   <div class="row">
     <div class="col-lg-12">
+      <h3>Pemesanan Pemandu Wisata</h3>
       <div class="card p-3 bg-custom-2 border-radius-10">
         <form action="" method="get">
           <div class="row">
@@ -43,6 +44,51 @@
       </div>
     </div>
     <?php if ($kota_id &&  $tanggal_berakhir  && $tanggal_keberangkatan) : ?>
+      <?php if ($dataDestinasi) : ?>
+        <h3 class="mt-3">Rekomendasi Wisata</h3>
+        <div class="col-lg-12 mt-3">
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class="active" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class="active" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <?php
+              $i = 0;
+              foreach ($dataDestinasi as $destinasi) : ?>
+                <?php if ($i == 0) : ?>
+                  <div class="carousel-item active image-carousel" style="height: 365px;overflow: hidden;">
+                    <img src="<?= base_url('/assets/img/destinasi/' . $destinasi['image']) ?>" class=" border-radius-10 d-block w-100 center-cropped" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5><?= $destinasi['nama'] ?></h5>
+                      <p><?= $destinasi['alamat'] ?></p>
+                    </div>
+                  </div>
+                <?php else : ?>
+                  <div class="carousel-item image-carousel" style="height: 365px;overflow: hidden;">
+                    <img src="<?= base_url('/assets/img/destinasi/' . $destinasi['image']) ?>" class="d-block w-100 center-cropped border-radius-10" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5><?= $destinasi['nama'] ?></h5>
+                      <p><?= $destinasi['alamat'] ?></p>
+                    </div>
+                  </div>
+                <?php endif ?>
+                <?php $i++ ?>
+              <?php endforeach ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      <?php endif ?>
+
       <div class="col-lg-12 mt-3">
         <h3>Data Pemandu</h3>
         <div class="row">
@@ -54,10 +100,10 @@
               <div class="col-lg-6 mt-3" style="min-height: 216px !important;">
                 <div class="card p-4 bg-custom-2 border-radius-10" style="height: 100%;">
                   <div class="row align-items-center">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 mt-2">
                       <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-9 mt-2">
                       <div class="d-flex flex-column justify-content-between" style="height: 100% ;">
                         <h5 class="text-white mb-3"><?= $pemandu['nama'] ?></h5>
                         <p class="text-white displayRingkasan " style="min-height: 72px ;"><?= substr($pemandu['ringkasan'], 0, 100) ?></p>

@@ -28,7 +28,9 @@ class Transaksi extends BaseController
   public function index()
   {
     $data = [
-      'dataTransaksi' => $this->CustomModel->dataTransaksi()
+      'dataTransaksi' => $this->CustomModel->dataTransaksi(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
     return view('/admin/transaksi/index', $data);
@@ -37,7 +39,9 @@ class Transaksi extends BaseController
   public function edit($id = null)
   {
     $data = [
-      'transaksi' => $this->CustomModel->dataTransaksiById($id)[0]
+      'transaksi' => $this->CustomModel->dataTransaksiById($id)[0],
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
     return view('admin/transaksi/edit', $data);

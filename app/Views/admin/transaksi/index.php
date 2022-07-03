@@ -21,7 +21,7 @@
               <h5 class="fw-bold text-2">Data Transaksi</h5>
             </div>
             <div class="col-lg-6 text-end">
-              <a href="<?= base_url() ?>/admin/transaksi/tambah" class="btn btn-custom-3 btn-sm">Tambah Transaksi</a>
+
             </div>
           </div>
           <?php if (session()->get('success')) : ?>

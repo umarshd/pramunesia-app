@@ -8,7 +8,7 @@
           <div class="col-lg-6 text-center">
             <div class="bg-custom-2 border-radius-10 p-4">
               <div class="d-flex justify-content-center">
-                <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
+                <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px" width="100px">
               </div>
               <h4 class="text-white py-3"><?= $pemandu['nama'] ?></h4>
               <a href="<?= base_url('/pemandu/profile/edit/' . $pemandu['id']) ?>">

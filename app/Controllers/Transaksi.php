@@ -61,4 +61,11 @@ class Transaksi extends BaseController
     session()->setFlashdata('success', 'Data berhasil diperbarui');
     return redirect()->to('/admin/transaksi');
   }
+
+  public function delete($id)
+  {
+    $this->TransaksiModel->delete($id);
+    session()->setFlashdata('success', 'Data berhasil dihapus');
+    return redirect()->to('/admin/transaksi');
+  }
 }

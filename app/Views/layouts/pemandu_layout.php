@@ -5,6 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="dicoding:email" content="kusumarahmah2@gmail.com">
 
   <!-- Favicons -->
   <link href="<?= base_url() ?>/assets/icon-192x192.png" rel="icon">

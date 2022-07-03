@@ -8,7 +8,7 @@
           <div class="col-lg-4 text-center">
             <div class="bg-custom-2 border-radius-10 p-4 d-flex align-items-center flex-column justify-content-center" style="height: 100%;">
               <div class="d-flex justify-content-center">
-                <img src="<?= base_url('/assets/img/wisatawan/' . $wisatawan['image']) ?>" alt="" class="rounded-circle" height="100px">
+                <img src="<?= base_url('/assets/img/wisatawan/' . $wisatawan['image']) ?>" alt="" class="rounded-circle" height="100px" width="100px">
               </div>
               <h4 class="text-white py-3"><?= $wisatawan['nama'] ?></h4>
 

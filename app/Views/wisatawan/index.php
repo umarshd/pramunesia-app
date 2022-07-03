@@ -101,7 +101,7 @@
                 <div class="card p-4 bg-custom-2 border-radius-10" style="height: 100%;">
                   <div class="row align-items-center">
                     <div class="col-lg-3 mt-2">
-                      <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
+                      <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px" width="100px">
                     </div>
                     <div class="col-lg-9 mt-2">
                       <div class="d-flex flex-column justify-content-between" style="height: 100% ;">

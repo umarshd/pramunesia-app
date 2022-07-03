@@ -8,7 +8,7 @@
           <div class="col-lg-4 text-center">
             <div class="bg-custom-2 border-radius-10 p-4 d-flex align-items-center flex-column justify-content-center" style="height: 100%;">
               <div class="d-flex justify-content-center">
-                <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="img-fluid">
+                <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
               </div>
               <h4 class="text-white py-3"><?= $pemandu['nama'] ?></h4>
 
@@ -19,7 +19,16 @@
               <h4>Edit</h4>
               <a href="<?= base_url() ?>/pemandu/profile" class="btn btn-custom-3 btn-sm">Kembali</a>
             </div>
-
+            <?php if (session()->get('error')) : ?>
+              <div class="alert alert-danger my-2" role="alert">
+                <?= session()->get('error') ?>
+              </div>
+            <?php endif ?>
+            <?php if (session()->get('success')) : ?>
+              <div class="alert alert-success my-2" role="alert">
+                <?= session()->get('success') ?>
+              </div>
+            <?php endif ?>
             <form action="<?= base_url() ?>/pemandu/profile/edit/proses" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-lg-6">
@@ -87,8 +96,15 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <label class="form-label">Ringkasan</label>
+                  <textarea name="ringkasan" id="" cols="30" rows="5" class="form-control"><?= $pemandu['ringkasan'] ?></textarea>
+                  <small class="text-danger fst-italic">*Maksimal 100 karakter yang ditampilkan</small>
+                </div>
+              </div>
 
-              <div class="text-center mt-3 mb-2">
+              <div class="text-end mt-3 mb-2">
                 <button type="submit" class="btn btn-custom-3">Edit</button>
               </div>
             </form>

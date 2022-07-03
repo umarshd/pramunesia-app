@@ -65,6 +65,9 @@ $routes->group('wisatawan', ['filter' => 'authWisatawanFilter'], function ($rout
 
     $routes->get('pemesanan', 'Wisatawan::pemesanan');
 
+    $routes->get('pemesanan/tiket/(:segment)', 'Wisatawan::tiketPemesanan/$1');
+    $routes->get('pemesanan/tiket/cetak/(:segment)', 'Wisatawan::cetakTiket/$1');
+
     $routes->get('pembayaran/(:segment)', 'Wisatawan::pembayaran/$1');
 
     $routes->get('transaksi/konfirmasi', 'Wisatawan::konfirmasiPesanan');
@@ -82,6 +85,10 @@ $routes->group('pemandu', ['filter' => 'authPemanduFilter'], function ($routes) 
     $routes->post('profile/edit/proses', 'Pemandu::prosesEditProfile');
 
     $routes->get('kegiatan', 'Pemandu::kegiatan');
+    $routes->get('kegiatan/tambah', 'Pemandu::tambahKegiatan');
+    $routes->post('kegiatan/tambah/proses', 'Pemandu::prosesTambahKegiatan');
+    $routes->get('kegiatan/delete/(:segment)', 'Pemandu::deleteKegiatan/$1');
+
     $routes->get('jadwal', 'Pemandu::jadwal');
 });
 

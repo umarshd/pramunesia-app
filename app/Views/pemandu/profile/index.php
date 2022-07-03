@@ -23,7 +23,7 @@
             </div>
 
 
-            <a href="" class="nav-link link-edit-profile">
+            <a href="<?= base_url() ?>/pemandu/kegiatan" class="nav-link link-edit-profile">
               <div class="d-flex align-items-center justify-content-between editProfile">
                 <span class="text-2">
                   Kegiatan

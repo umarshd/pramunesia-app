@@ -4,9 +4,12 @@
   <div class="row">
 
     <div class="col-lg-12">
-      <div class="card p-3 py-5 bg-custom-2 text-center">
+      <div class="card p-3 py-3 bg-custom-2 text-center border-radius-10">
+        <div class="text-start">
+          <a class="text-3 h3" href="<?= base_url() ?>/wisatawan"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        </div>
         <div class="d-flex align-items-center justify-content-center">
-          <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="">
+          <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">
         </div>
         <h4 class="text-center py-2 pt-4 text-white">
           <?= $pemandu['nama'] ?> <span class="fw-light"> <?= $pemandu['email'] ?></span>
@@ -29,26 +32,23 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 text-center mt-3">
-            <div class=" card border-0 border-radius-10 p-4">
-              Hello
+          <?php foreach ($dataKegiatan as $kegiatan) : ?>
+            <div class="col-lg-4 text-center mt-3">
+              <div class=" card border-0 border-radius-10 p-4">
+                <div style="height: 200px; overflow: hidden;">
+                  <img src="<?= base_url('/assets/img/pemandu/kegiatan/' . $kegiatan['image']) ?>" alt="" class="img-fluid">
+                </div>
+                <div>
+                  <p class="mt-3" style="min-height: 48px;">
+                    <?= substr($kegiatan['deskripsi'], 0, 50) . '....' ?>
+                  </p>
+                </div>
+
+
+              </div>
             </div>
-          </div>
-          <div class="col-lg-4 text-center mt-3">
-            <div class=" card border-0 border-radius-10 p-4">
-              Hello
-            </div>
-          </div>
-          <div class="col-lg-4 text-center mt-3">
-            <div class=" card border-0 border-radius-10 p-4">
-              Hello
-            </div>
-          </div>
-          <div class="col-lg-4 text-center mt-3">
-            <div class=" card border-0 border-radius-10 p-4">
-              Hello
-            </div>
-          </div>
+          <?php endforeach ?>
+
 
         </div>
       </div>

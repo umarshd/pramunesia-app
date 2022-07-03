@@ -10,7 +10,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
         <li class="breadcrumb-item">Destinasi</li>
-        <li class="breadcrumb-item active">Tambah</li>
+        <li class="breadcrumb-item active">Edit</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -20,25 +20,24 @@
 
       <div class="col-lg-6">
         <div class="card p-3">
-          <div class="row justify-content-center">
-            <div class="col-lg-6">
-              <h5>Edit Destinasi</h5>
-            </div>
-            <div class="col-lg-6 text-end">
-              <a href="<?= base_url() ?>/admin/kota" class="btn btn-primary btn-sm">kembali</a>
-            </div>
-          </div>
+
+          <h5 class="text-2 fw-bold">Edit Destinasi</h5>
+
 
           <?php if (session()->get('error')) : ?>
             <div class="alert alert-danger my-2" role="alert">
               <?= session()->get('error') ?>
             </div>
           <?php endif ?>
-          <form action="<?= base_url() ?>/admin/destinasi/tambah/proses" method="post" enctype="multipart/form-data">
+          <form action="<?= base_url() ?>/admin/destinasi/edit/proses" method="post" enctype="multipart/form-data">
             <div class="form-group py-2">
               <label class="form-label">Nama Destinasi</label>
-              <input type="text" name="id" class="form-control" value="<?= $destinasi['id'] ?>">
+              <input type="text" name="id" class="form-control" value="<?= $destinasi['id'] ?>" hidden>
               <input type="text" name="nama" class="form-control" value="<?= $destinasi['nama'] ?>">
+            </div>
+            <div class="form-group py-2">
+              <label class="form-label">Alamat</label>
+              <input type="text" name="alamat" class="form-control" value="<?= $destinasi['alamat'] ?>">
             </div>
             <div class="form-group py-2">
               <label class="form-label">Image</label>
@@ -57,13 +56,13 @@
               <select name="kota_id" class="form-select">
                 <option disabled selected>Pilih Kota</option>
                 <?php foreach ($dataKota as $kota) : ?>
-                  <option value="<?= $kota['id'] ?>"><?= $kota['nama'] ?></option>
+                  <option <?= ($destinasi['kota_id'] == $kota['id']) ? 'selected' : '' ?> value="<?= $kota['id'] ?>"><?= $kota['nama'] ?></option>
                 <?php endforeach ?>
               </select>
             </div>
 
             <div class="py-3 text-end">
-              <button class="btn btn-primary" type="submit">Kirim</button>
+              <button class="btn btn-custom-3" type="submit">Edit</button>
             </div>
           </form>
         </div>

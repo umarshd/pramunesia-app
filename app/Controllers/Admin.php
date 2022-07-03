@@ -29,28 +29,34 @@ class Admin extends BaseController
   {
 
     $data = [
-      'admin' => $this->AdminModel->where('id', session()->get('admin-id'))->first(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
       'dataTransaksi' => $this->CustomModel->transaksiTerbaru(),
       'countPemandu' => $this->PemanduModel->countAllResults(),
       'countWisatawan' => $this->WisatawanModel->countAllResults(),
       'countTransaksi' => $this->TransaksiModel->countAllResults()
     ];
-
     return view('admin/index', $data);
   }
 
   public function indexWisatawan()
   {
     $data = [
-      'dataWisatawan' => $this->WisatawanModel->findAll()
+      'dataWisatawan' => $this->WisatawanModel->findAll(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first()
     ];
+
+
 
     return view('admin/wisatawan/index', $data);
   }
 
   public function tambahWisatawan()
   {
-    return view('/admin/wisatawan/tambah');
+    $data = [
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
+    ];
+    return view('/admin/wisatawan/tambah', $data);
   }
 
   public function prosesTambahWisatawan()
@@ -113,7 +119,8 @@ class Admin extends BaseController
   public function editWisatawan($id = null)
   {
     $data = [
-      'wisatawan' => $this->WisatawanModel->where('id', $id)->first()
+      'wisatawan' => $this->WisatawanModel->where('id', $id)->first(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
     ];
 
     return view('admin/wisatawan/edit', $data);
@@ -258,7 +265,9 @@ class Admin extends BaseController
   public function indexPemandu()
   {
     $data = [
-      'dataPemandu' => $this->PemanduModel->findAll()
+      'dataPemandu' => $this->PemanduModel->findAll(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
     return view('admin/pemandu/index', $data);
@@ -266,7 +275,10 @@ class Admin extends BaseController
 
   public function tambahPemandu()
   {
-    return view('/admin/pemandu/tambah');
+    $data = [
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+    ];
+    return view('/admin/pemandu/tambah', $data);
   }
 
   public function prosesTambahPemandu()
@@ -350,7 +362,9 @@ class Admin extends BaseController
   public function editPemandu($id = null)
   {
     $data = [
-      'pemandu' => $this->PemanduModel->where('id', $id)->first()
+      'pemandu' => $this->PemanduModel->where('id', $id)->first(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
     return view('admin/pemandu/edit', $data);
@@ -363,6 +377,12 @@ class Admin extends BaseController
         'rules' => 'required',
         'errors' => [
           'required' => 'Nomer Kta harus diisi'
+        ]
+      ],
+      'ringkasan' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Ringkasan harus diisi'
         ]
       ],
       'nama' => [
@@ -424,6 +444,7 @@ class Admin extends BaseController
           'telepon' => $this->request->getVar('telepon'),
           'alamat' => $this->request->getVar('alamat'),
           'jenis' => $this->request->getVar('jenis'),
+          'ringkasan' => $this->request->getVar('ringkasan'),
         ];
 
         $this->PemanduModel->update($id, $data);
@@ -445,6 +466,7 @@ class Admin extends BaseController
         'telepon' => $this->request->getVar('telepon'),
         'alamat' => $this->request->getVar('alamat'),
         'jenis' => $this->request->getVar('jenis'),
+        'ringkasan' => $this->request->getVar('ringkasan'),
         'password' => $passwordHas,
       ];
 
@@ -482,6 +504,7 @@ class Admin extends BaseController
         'telepon' => $this->request->getVar('telepon'),
         'alamat' => $this->request->getVar('alamat'),
         'jenis' => $this->request->getVar('jenis'),
+        'ringkasan' => $this->request->getVar('ringkasan'),
         'image' => $newNameImage
       ];
 
@@ -513,6 +536,7 @@ class Admin extends BaseController
       'telepon' => $this->request->getVar('telepon'),
       'alamat' => $this->request->getVar('alamat'),
       'jenis' => $this->request->getVar('jenis'),
+      'ringkasan' => $this->request->getVar('ringkasan'),
       'password' => $passwordHas,
       'image' => $newNameImage
     ];

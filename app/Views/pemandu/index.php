@@ -31,7 +31,7 @@
 
         </div>
         <div class="col-lg-4 mt-2">
-          <a href="https://s.id/PramunesiaSuratTugas" class="nav-link">
+          <a href="https://s.id/PramunesiaSuratTugas" class="nav-link" target="_blink">
             <div class="card p-3 border-radius-10 bg-custom-2">
               <div class="row  align-items-center">
                 <div class="col-lg-4">
@@ -49,7 +49,7 @@
 
         </div>
         <div class="col-lg-4 mt-2">
-          <a href="https://s.id/PramunesiaSuratRekomendasi" class="nav-link">
+          <a href="https://s.id/PramunesiaSuratRekomendasi" class="nav-link" target="_blink">
             <div class="card p-3 border-radius-10 bg-custom-2">
               <div class="row  align-items-center">
                 <div class="col-lg-4">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-lg-8">
                   <h5 class="card-title text-white">
-                    Surat Rekomendasi
+                    Rekomendasi
                   </h5>
                   <small class="card-text text-white">
                     rekomendasi sertifikasimu!
@@ -86,7 +86,6 @@
               <th scope="col">Tanggal Berakhir</th>
               <th scope="col">Pemandu</th>
               <th scope="col">Wisatawan</th>
-              <th scope="col">Aksi</th>
 
             </tr>
           </thead>
@@ -101,35 +100,9 @@
                 <td><?= $transaksi['tanggal_berakhir'] ?></td>
                 <td><?= $transaksi['nama_pemandu'] ?></td>
                 <td><?= $transaksi['nama_wisatawan'] ?></td>
-                <td>
-                  <a href="<?= base_url('/admin/kota/edit/' . $transaksi['id']) ?>">
-                    <span class="badge bg-secondary">Edit</span>
-                  </a>
 
-                  <button type="button" class="border-0" style="background: transparent;" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $transaksi['id'] ?>">
-                    <span class=" badge bg-danger">Delete</span>
-                  </button>
-                </td>
               </tr>
-              <div class="modal fade" id="exampleModal<?= $transaksi['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <h4 class="h4">
-                        Apakah kamu yakin menghapus data ini ?</h4>
-                      <p>Data ini akan hilang selamanya</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <a href="<?= base_url('/admin/transaksi/delete/' . $transaksi['id']) ?>" class="btn btn-danger">Delete</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             <?php endforeach ?>
 
 

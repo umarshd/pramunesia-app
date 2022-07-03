@@ -31,6 +31,10 @@
               <input type="text" name="nama" class="form-control" value="<?= old('nama') ?>">
             </div>
             <div class="form-group py-2">
+              <label class="form-label">Alamat</label>
+              <input type="text" name="alamat" class="form-control" value="<?= old('alamat') ?>">
+            </div>
+            <div class="form-group py-2">
               <label class="form-label">Image</label>
               <input type="file" name="file" class="form-control" accept="image/*">
             </div>

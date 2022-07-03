@@ -5,7 +5,7 @@
 
 
   <div class="pagetitle">
-    <h1>Data Wisatawan</h1>
+    <h1>Wisatawan</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -61,7 +61,7 @@
               </div>
             </div>
 
-            <div class="text-center mt-3 mb-2">
+            <div class="text-end mt-3 mb-2">
               <button type="submit" class="btn btn-custom-3">Edit</button>
             </div>
           </form>

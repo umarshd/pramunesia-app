@@ -5,24 +5,29 @@ namespace App\Controllers;
 use App\Models\KotaModel;
 use App\Models\DestinasiModel;
 use App\Models\CustomModel;
+use App\Models\AdminModel;
 
 class Destinasi extends BaseController
 {
   protected $KotaModel;
   protected $DestinasiModel;
   protected $CustomModel;
+  protected $AdminModel;
 
   public function __construct()
   {
     $this->KotaModel = new KotaModel();
     $this->DestinasiModel = new DestinasiModel();
     $this->CustomModel = new CustomModel();
+    $this->AdminModel = new AdminModel();
   }
 
   public function index()
   {
     $data = [
-      'dataDestinasi' => $this->CustomModel->dataDestinasi()
+      'dataDestinasi' => $this->CustomModel->dataDestinasi(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
     return view('admin/destinasi/index', $data);
   }
@@ -30,7 +35,9 @@ class Destinasi extends BaseController
   public function tambah()
   {
     $data = [
-      'dataKota' => $this->KotaModel->findAll()
+      'dataKota' => $this->KotaModel->findAll(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
     return view('admin/destinasi/tambah', $data);
   }
@@ -39,7 +46,9 @@ class Destinasi extends BaseController
   {
     $data = [
       'dataKota' => $this->KotaModel->findAll(),
-      'destinasi' => $this->DestinasiModel->where('id', $id)->first()
+      'destinasi' => $this->DestinasiModel->where('id', $id)->first(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
 
@@ -54,6 +63,12 @@ class Destinasi extends BaseController
         'rules' => 'required',
         'errors' => [
           'required' => 'Nama Destinasi harus diisi'
+        ]
+      ],
+      'alamat' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Alamat harus diisi'
         ]
       ],
       'rekomendasi' => [
@@ -93,6 +108,7 @@ class Destinasi extends BaseController
 
     $data = [
       'nama' => $this->request->getVar('nama'),
+      'alamat' => $this->request->getVar('alamat'),
       'rekomendasi' => $this->request->getVar('rekomendasi'),
       'kota_id' => $this->request->getVar('kota_id'),
       'image' => $newNameImage,
@@ -107,6 +123,12 @@ class Destinasi extends BaseController
   {
     $rules = $this->validate([
       'nama' => [
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Nama Destinasi harus diisi'
+        ]
+      ],
+      'alamat' => [
         'rules' => 'required',
         'errors' => [
           'required' => 'Nama Destinasi harus diisi'
@@ -141,21 +163,23 @@ class Destinasi extends BaseController
     $id = $this->request->getVar('id');
 
     date_default_timezone_set('Asia/Jakarta');
-    $image = $this->request->getFile('file');
+    $image = $_FILES['file']['name'];
+
 
     if (!$image) {
       $data = [
         'nama' => $this->request->getVar('nama'),
+        'alamat' => $this->request->getVar('alamat'),
         'rekomendasi' => $this->request->getVar('rekomendasi'),
         'kota_id' => $this->request->getVar('kota_id'),
 
       ];
 
       $this->DestinasiModel->update($id, $data);
-      session()->setFlashdata('success', 'Data berhasil ditambahkan');
+      session()->setFlashdata('success', 'Data berhasil diperbarui');
       return redirect()->to('admin/destinasi');
     }
-
+    $image = $this->request->getFile('file');
     if (!$rulesImage) {
       session()->setFlashdata('error', $this->validator->listErrors());
       return redirect()->back();
@@ -171,14 +195,15 @@ class Destinasi extends BaseController
 
     $data = [
       'nama' => $this->request->getVar('nama'),
+      'alamat' => $this->request->getVar('alamat'),
       'rekomendasi' => $this->request->getVar('rekomendasi'),
       'kota_id' => $this->request->getVar('kota_id'),
       'image' => $newNameImage,
     ];
 
-    $this->KotaModel->update($id, $data);
+    $this->DestinasiModel->update($id, $data);
     session()->setFlashdata('success', 'Data berhasil diperbarui');
-    return redirect()->to('admin/kota');
+    return redirect()->to('admin/destinasi');
   }
 
   public function delete($id = null)

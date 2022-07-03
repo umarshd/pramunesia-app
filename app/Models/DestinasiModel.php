@@ -13,6 +13,7 @@ class DestinasiModel extends Model
     'nama',
     'rekomendasi',
     'kota_id',
-    'image'
+    'image',
+    'alamat'
   ];
 }

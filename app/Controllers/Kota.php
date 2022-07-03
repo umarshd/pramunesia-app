@@ -3,32 +3,44 @@
 namespace App\Controllers;
 
 use App\Models\KotaModel;
+use App\Models\AdminModel;
 
 class Kota extends BaseController
 {
   protected $KotaModel;
+  protected $AdminModel;
+
   public function __construct()
   {
     $this->KotaModel = new KotaModel();
+    $this->AdminModel = new AdminModel();
   }
 
   public function index()
   {
     $data = [
-      'dataKota' => $this->KotaModel->findAll()
+      'dataKota' => $this->KotaModel->findAll(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
     return view('admin/kota/index', $data);
   }
   public function tambah()
   {
-    return view('admin/kota/tambah');
+    $data = [
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
+    ];
+    return view('admin/kota/tambah', $data);
   }
 
   public function edit($id = null)
   {
     $data = [
-      'kota' => $this->KotaModel->where('id', $id)->first()
+      'kota' => $this->KotaModel->where('id', $id)->first(),
+      'admin' => $this->AdminModel->where('id', session()->get('admin_id'))->first(),
+
     ];
 
     return view('admin/kota/edit', $data);

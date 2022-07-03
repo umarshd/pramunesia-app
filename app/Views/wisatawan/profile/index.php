@@ -12,7 +12,7 @@ use App\Controllers\Wisatawan;
           <div class="col-lg-6 text-center">
             <div class="bg-custom-2 border-radius-10 p-4">
               <div class="d-flex justify-content-center">
-                <img src="<?= base_url('/assets/img/wisatawan/' . $wisatawan['image']) ?>" alt="" class="rounded-circle" height="100px">
+                <img src="<?= base_url('/assets/img/wisatawan/' . $wisatawan['image']) ?>" alt="" class="rounded-circle" height="100px" width="100px">
               </div>
               <h4 class="text-white py-3"><?= $wisatawan['nama'] ?></h4>
               <a href="<?= base_url('/wisatawan/profile/edit/' . $wisatawan['id']) ?>">

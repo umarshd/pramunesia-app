@@ -67,7 +67,7 @@
                 <td><?= $transaksi['nama_pemandu'] ?></td>
                 <td><?= $transaksi['nama_wisatawan'] ?></td>
                 <td>
-                  <a href="<?= base_url('/admin/kota/edit/' . $transaksi['id']) ?>">
+                  <a href="<?= base_url('/admin/transaksi/edit/' . $transaksi['id']) ?>">
                     <span class="badge bg-secondary">Edit</span>
                   </a>
 

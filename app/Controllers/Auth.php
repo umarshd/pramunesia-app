@@ -92,9 +92,10 @@ class Auth extends BaseController
         ]
       ],
       'email' => [
-        'rules' => 'required',
+        'rules' => 'required|is_unique[wisatawan.email]',
         'errors' => [
           'required' => 'Email harus diisi',
+          'is_unique' => 'Email sudah digunakan'
         ]
       ],
       'telepon' => [
@@ -224,9 +225,10 @@ class Auth extends BaseController
         ]
       ],
       'email' => [
-        'rules' => 'required',
+        'rules' => 'required|is_unique[pemandu.email]',
         'errors' => [
           'required' => 'Email harus diisi',
+          'is_unique' => 'Email sudah digunakan'
         ]
       ],
       'telepon' => [

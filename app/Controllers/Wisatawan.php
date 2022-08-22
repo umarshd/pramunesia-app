@@ -83,6 +83,8 @@ class Wisatawan extends BaseController
       'dataDestinasi' => $this->CustomModel->dataDestinasiByIdKota($kota_id)
     ];
 
+    session()->set(['current_url' => 'wisatawan?kota_id=' . $kota_id . '&tanggal_keberangkatan=' . $tanggal_keberangkatan . '&tanggal_berakhir=' . $tanggal_berakhir]);
+
     return view('wisatawan/index', $data);
   }
 

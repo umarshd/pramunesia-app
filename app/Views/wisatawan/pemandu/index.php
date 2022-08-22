@@ -6,7 +6,7 @@
     <div class="col-lg-12">
       <div class="card p-3 py-3 bg-custom-2 text-center border-radius-10">
         <div class="text-start">
-          <a class="text-3 h3" href="<?= base_url() ?>/wisatawan"><i class="fas fa-arrow-alt-circle-left"></i></a>
+          <a class="text-3 h3" href="<?= base_url() . '/' . session()->get('current_url') ?>"><i class="fas fa-arrow-alt-circle-left"></i></a>
         </div>
         <div class="d-flex align-items-center justify-content-center">
           <img src="<?= base_url('/assets/img/pemandu/' . $pemandu['image']) ?>" alt="" class="rounded-circle" height="100px">

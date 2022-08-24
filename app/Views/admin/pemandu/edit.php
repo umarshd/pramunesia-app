@@ -51,6 +51,7 @@
               <div class="col-lg-6">
                 <div class="form-group py-2 text-start">
                   <label class="form-label text-2">Email</label>
+                  <input type="email" class="form-control" name="emailOld" value="<?= $pemandu['email'] ?>" hidden>
                   <input type="email" class="form-control" name="email" value="<?= $pemandu['email'] ?>">
                 </div>
               </div>

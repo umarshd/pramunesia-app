@@ -186,6 +186,7 @@
   <script>
     $(document).ready(function() {
       $('#example').DataTable();
+      $('#exampleTableTransaksiManual').DataTable();
     });
   </script>
 

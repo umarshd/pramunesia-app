@@ -90,6 +90,9 @@ $routes->group('pemandu', ['filter' => 'authPemanduFilter'], function ($routes) 
     $routes->get('kegiatan/delete/(:segment)', 'Pemandu::deleteKegiatan/$1');
 
     $routes->get('jadwal', 'Pemandu::jadwal');
+
+    $routes->get('manual/transaksi/tambah', 'Pemandu::tambahManualTransaksi');
+    $routes->post('manual/transaksi/tambah/proses', 'Pemandu::prosesTambahManualTransaksi');
 });
 
 $routes->group('admin', ['filter' => 'authAdminFilter'], function ($routes) {
@@ -130,6 +133,10 @@ $routes->group('admin', ['filter' => 'authAdminFilter'], function ($routes) {
     $routes->post('transaksi/edit/proses', 'Transaksi::prosesEdit');
     $routes->get('transaksi/delete/(:segment)', 'Transaksi::delete/$1');
     $routes->get('transaksi/edit/(:segment)', 'Transaksi::edit/$1');
+
+    $routes->post('transaksi/manual/edit/proses', 'Transaksi::prosesEditManual');
+    $routes->get('transaksi/manual/delete/(:segment)', 'Transaksi::deleteManual/$1');
+    $routes->get('transaksi/manual/edit/(:segment)', 'Transaksi::editManual/$1');
 });
 
 /*

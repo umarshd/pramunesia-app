@@ -22,7 +22,7 @@
 <body>
   <div class="container-fluid">
     <div class="row h-100vh">
-      <div class="col-lg-6">
+      <div class="col-lg-6 d-none d-lg-block">
         <div class="d-flex h-100vh justify-content-center align-items-center">
           <img src="<?= base_url() ?>/assets/images/logo-big.png">
         </div>

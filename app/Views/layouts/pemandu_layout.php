@@ -105,6 +105,7 @@
   <script>
     $(document).ready(function() {
       $('#example').DataTable();
+      $('#exampleTableManualTransaksi').DataTable();
     });
   </script>
 

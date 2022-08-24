@@ -54,6 +54,7 @@
                 <div class="col-lg-6">
                   <div class="form-group py-2 text-start">
                     <label class="form-label text-2">Email</label>
+                    <input type="email" class="form-control" name="emailOld" value="<?= $pemandu['email'] ?>" hidden>
                     <input type="email" class="form-control" name="email" value="<?= $pemandu['email'] ?>">
                   </div>
                 </div>
@@ -105,7 +106,7 @@
               </div>
 
               <div class="text-end mt-3 mb-2">
-                <button type="submit" class="btn btn-custom-3">Edit</button>
+                <button type="submit" class="btn btn-custom-3">Simpan</button>
               </div>
             </form>
 

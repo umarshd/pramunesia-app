@@ -16,7 +16,7 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="d-flex justify-content-between align-items-center">
               <h4>Edit</h4>
               <a href="<?= base_url() ?>/pemandu" class="btn btn-custom-3 btn-sm">Kembali</a>

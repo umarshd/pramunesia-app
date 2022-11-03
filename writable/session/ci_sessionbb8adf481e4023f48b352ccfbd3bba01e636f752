@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1661321716;_ci_previous_url|s:35:"http://localhost:8080/pemandu/login";error|s:25:"email atau password salah";__ci_vars|a:2:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:2:{s:5:"email";s:21:"regina13590@gmail.com";s:8:"password";s:5:"12345";}}
